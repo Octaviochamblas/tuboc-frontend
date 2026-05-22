@@ -99,6 +99,7 @@
   font-size: 1.25rem;
   margin: 0;
   flex-grow: 1;
+  color: var(--c-white);
 }
 
 .benefit-chevron {
