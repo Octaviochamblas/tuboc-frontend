@@ -2,6 +2,7 @@
   background: rgba(28, 28, 28, 0.95);
   padding: 60px 0 20px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--c-white);
 }
 
 .footer-content {
@@ -18,7 +19,7 @@
 }
 
 .footer-brand p {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .footer-links {
@@ -27,7 +28,7 @@
 }
 
 .footer-links a {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
   transition: color 0.2s;
 }

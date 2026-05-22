@@ -1,6 +1,7 @@
 .cta-section {
   padding: 100px 0;
   background: linear-gradient(135deg, var(--c-dark) 0%, rgba(33, 40, 79, 0.4) 100%);
+  color: var(--c-white);
 }
 
 .cta-grid {
@@ -29,7 +30,7 @@
 }
 
 .cta-content p {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 40px;

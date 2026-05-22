@@ -2,6 +2,7 @@
   padding: 80px 0 40px 0;
   position: relative;
   background: var(--c-blue-primary);
+  color: var(--c-white);
 }
 
 .case-grid {

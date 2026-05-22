@@ -1,6 +1,7 @@
 .faq-section {
   padding: 80px 0 40px 0;
   background: var(--c-blue-primary);
+  color: var(--c-white);
 }
 
 @media (max-width: 768px) {
@@ -70,6 +71,6 @@
 
 .faq-answer p {
   padding: 0 30px 30px 30px;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
 }

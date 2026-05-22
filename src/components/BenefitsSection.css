@@ -1,7 +1,8 @@
 .benefits-section {
   padding: 80px 0 40px 0;
   position: relative;
-  background: linear-gradient(180deg, var(--bg-color), var(--c-blue-primary));
+  background: var(--c-blue-primary);
+  color: var(--c-white);
 }
 
 .benefits-layout {
@@ -34,7 +35,7 @@
 
 .benefits-header p {
   font-size: 1.15rem;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .benefits-grid {
@@ -110,7 +111,7 @@
 }
 
 .benefit-content p {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 1rem;
   line-height: 1.6;
   margin: 20px 0 0 0;
