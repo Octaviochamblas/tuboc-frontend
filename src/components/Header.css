@@ -127,6 +127,17 @@
     display: none !important;
   }
   
+  .header-container {
+    position: relative;
+    min-height: 72px;
+  }
+  
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
   .logo img {
     height: 40px !important;
   }
