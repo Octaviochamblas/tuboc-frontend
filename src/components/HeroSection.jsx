@@ -54,15 +54,6 @@ export default function HeroSection() {
               Ofrecemos bongs portátiles de vidrio borosilicato en formato tubular compacto. Incluyen su carcasa protectora para un transporte seguro y discreto.
             </p>
             
-            <div className="hero-actions">
-              <a href="https://tuboc.shop" target="_blank" rel="noreferrer" className="btn-primary">
-                <ShoppingBag size={20} />
-                Comprar ahora
-              </a>
-              <div className="hero-price">
-                $64.990
-              </div>
-            </div>
           </motion.div>
 
           <motion.div 
@@ -70,15 +61,25 @@ export default function HeroSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            style={{ display: 'flex', alignItems: 'stretch' }}
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}
           >
             {/* 3D Glass Representation */}
             <motion.div 
               className="pipe-photo-container"
-              style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'stretch', justifyContent: 'center' }}
+              style={{ width: '100%', display: 'flex', alignItems: 'stretch', justifyContent: 'center' }}
             >
               <img src={tubocImg} alt="Pipas TUBOC" style={{ width: '100%', height: '100%', minHeight: '500px', objectFit: 'cover', borderRadius: '16px', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }} />
             </motion.div>
+
+            <div className="hero-actions" style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+              <div className="hero-price" style={{ fontSize: '2.5rem', marginBottom: '8px' }}>
+                $64.990
+              </div>
+              <a href="https://tuboc.shop" target="_blank" rel="noreferrer" className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '20px 32px' }}>
+                <ShoppingBag size={20} />
+                Comprar ahora
+              </a>
+            </div>
           </motion.div>
 
         </div>
