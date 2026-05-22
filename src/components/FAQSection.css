@@ -3,6 +3,12 @@
   background: var(--c-blue-primary);
 }
 
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 20px 0 20px 0;
+  }
+}
+
 .faq-header {
   text-align: center;
   margin-bottom: 60px;

@@ -185,6 +185,29 @@
   padding-left: 68px; /* 48px num + 20px gap */
 }
 
+@media (max-width: 768px) {
+  .product-section {
+    padding: 20px 0 20px 0;
+  }
+  
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .product-media {
+    min-height: 400px;
+    order: 2;
+  }
+  
+  .product-copy {
+    order: 1;
+  }
+  
+  .solution-content p, .feature-content p {
+    padding-left: 0;
+  }
+}
+
 @media (max-width: 968px) {
   .product-grid {
     grid-template-columns: 1fr;
