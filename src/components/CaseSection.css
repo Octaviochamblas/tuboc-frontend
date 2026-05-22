@@ -44,17 +44,15 @@
 .case-point {
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.05);
   padding: 24px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, background 0.3s ease;
+  background: rgba(28, 28, 28, 0.4);
+  border-radius: 16px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.case-point:hover {
-  transform: translateX(10px);
-  background: rgba(255, 255, 255, 0.1);
+.case-point:hover, .case-point.open {
+  background: rgba(28, 28, 28, 0.6);
 }
 
 .case-point-header {

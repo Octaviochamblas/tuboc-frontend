@@ -25,7 +25,7 @@
 }
 
 .hero-tagline {
-  color: var(--c-blue-light);
+  color: var(--c-blue-primary);
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -39,7 +39,7 @@
 }
 
 .hero-title span {
-  color: var(--c-blue-light);
+  color: var(--c-blue-primary);
 }
 
 .hero-description {

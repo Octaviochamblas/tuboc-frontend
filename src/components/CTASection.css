@@ -1,7 +1,7 @@
 .cta-section {
   padding: 100px 0;
-  background: linear-gradient(135deg, var(--c-dark) 0%, rgba(33, 40, 79, 0.4) 100%);
-  color: var(--c-white);
+  background: radial-gradient(circle at 80% 20%, rgba(105, 151, 207, 0.15), transparent 50%), var(--bg-color);
+  color: var(--c-dark);
 }
 
 .cta-grid {
@@ -19,14 +19,16 @@
   justify-content: center;
   padding: 40px;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--c-blue-primary);
   border: 1px solid rgba(255, 255, 255, 0.05);
   text-align: center;
+  color: var(--c-white);
 }
 
 .cta-content h2 {
   font-size: 3rem;
   margin-bottom: 24px;
+  color: var(--c-white);
 }
 
 .cta-content p {
@@ -37,22 +39,29 @@
 }
 
 .btn-buy-large {
-  display: inline-block;
-  background: var(--c-blue-light);
-  color: var(--c-dark) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--c-blue-medium);
+  color: var(--c-white) !important;
   font-weight: 700;
   font-size: 1.1rem;
   padding: 16px 40px;
   border-radius: 99px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(38, 54, 137, 0.4);
+  transition: background-color 0.2s;
+  animation: pulse-hero 2s infinite ease-in-out;
   align-self: center;
 }
 
 .btn-buy-large:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(105, 151, 207, 0.3);
+  background-color: var(--c-blue-primary);
+  animation-play-state: paused;
 }
 
 .cta-image-wrapper {

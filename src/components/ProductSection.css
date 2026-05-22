@@ -22,7 +22,7 @@
 }
 
 .product-kicker {
-  color: var(--c-blue-light);
+  color: var(--c-blue-primary);
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -36,7 +36,7 @@
 }
 
 .product-copy h2 span {
-  color: var(--c-blue-light);
+  color: var(--c-blue-primary);
 }
 
 .solution-feature {
@@ -44,15 +44,14 @@
   flex-direction: column;
   padding: 24px;
   margin-bottom: 40px;
-  background: rgba(38, 54, 137, 0.15);
-  border-color: rgba(105, 151, 207, 0.3);
+  background: rgba(28, 28, 28, 0.4);
+  border-radius: 16px;
   cursor: pointer;
-  transition: background 0.3s ease, border-color 0.3s ease;
+  transition: background 0.3s ease;
 }
 
-.solution-feature:hover {
-  background: rgba(38, 54, 137, 0.25);
-  border-color: rgba(105, 151, 207, 0.5);
+.solution-feature:hover, .solution-feature.open {
+  background: rgba(28, 28, 28, 0.6);
 }
 
 .solution-feature-header {
@@ -77,7 +76,7 @@
 .solution-feature-header strong {
   flex-grow: 1;
   font-size: 1.1rem;
-  color: var(--c-dark);
+  color: var(--c-white);
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -85,12 +84,12 @@
 
 .solution-chevron {
   transition: transform 0.3s ease;
-  color: #555555;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .solution-feature.open .solution-chevron {
   transform: rotate(180deg);
-  color: var(--c-dark);
+  color: var(--c-white);
 }
 
 .solution-content {
@@ -98,7 +97,7 @@
 }
 
 .solution-content p {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.95rem;
   line-height: 1.6;
   margin-top: 16px;
