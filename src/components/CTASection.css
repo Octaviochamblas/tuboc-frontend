@@ -1,7 +1,7 @@
 .cta-section {
   padding: 100px 0;
-  background: radial-gradient(circle at 80% 20%, rgba(105, 151, 207, 0.15), transparent 50%), var(--bg-color);
-  color: var(--c-dark);
+  background: var(--cta-bg);
+  color: var(--text-color);
 }
 
 .cta-grid {
@@ -19,16 +19,16 @@
   justify-content: center;
   padding: 40px;
   border-radius: 24px;
-  background: var(--c-blue-primary);
+  background: var(--cta-box-bg);
   border: 1px solid rgba(255, 255, 255, 0.05);
   text-align: center;
-  color: var(--c-white);
+  color: var(--cta-box-text);
 }
 
 .cta-content h2 {
   font-size: 3rem;
   margin-bottom: 24px;
-  color: var(--c-white);
+  color: var(--cta-box-text);
 }
 
 .cta-content p {
@@ -43,8 +43,8 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: var(--c-blue-medium);
-  color: var(--c-white) !important;
+  background-color: var(--cta-btn-bg);
+  color: var(--cta-btn-text) !important;
   font-weight: 700;
   font-size: 1.1rem;
   padding: 16px 40px;
@@ -53,13 +53,21 @@
   letter-spacing: 1px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(38, 54, 137, 0.4);
-  transition: background-color 0.2s;
-  animation: pulse-hero 2s infinite ease-in-out;
+  box-shadow: var(--cta-btn-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.2s;
   align-self: center;
 }
 
 .btn-buy-large:hover {
+  transform: var(--cta-btn-hover);
+  background-color: var(--c-white);
+}
+
+[data-theme="light"] .btn-buy-large {
+  animation: pulse-hero 2s infinite ease-in-out;
+}
+
+[data-theme="light"] .btn-buy-large:hover {
   background-color: var(--c-blue-primary);
   animation-play-state: paused;
 }

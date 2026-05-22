@@ -21,11 +21,11 @@
 
 .header.scrolled,
 .header.menu-open {
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--header-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--header-border);
+  box-shadow: 0 4px 30px var(--header-shadow);
 }
 
 .header.scrolled .top-bar {
@@ -48,7 +48,7 @@
 
 .logo {
   font-size: 1.5rem;
-  color: var(--c-dark);
+  color: var(--header-text);
   letter-spacing: 3px;
   font-family: var(--font-heading);
 }
@@ -77,28 +77,45 @@
 .desktop-nav a {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--c-dark);
+  color: var(--header-text);
   transition: color 0.2s;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .desktop-nav a:hover {
-  color: var(--c-blue-light);
+  color: var(--title-accent);
 }
 
 .btn-buy-nav {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: var(--c-blue-primary);
-  color: var(--c-white) !important;
+  background: var(--nav-btn-bg);
+  color: var(--nav-btn-text) !important;
   padding: 8px 24px;
   border-radius: 99px;
 }
 
 .btn-buy-nav:hover {
-  background: var(--c-blue-medium);
+  background: var(--nav-btn-hover);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--header-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.theme-toggle:hover {
+  background: rgba(128, 128, 128, 0.2);
 }
 
 .header-actions {
@@ -112,7 +129,7 @@
   display: block;
   background: none;
   border: none;
-  color: var(--c-dark);
+  color: var(--header-text);
   cursor: pointer;
 }
 

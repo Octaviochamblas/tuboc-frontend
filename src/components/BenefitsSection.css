@@ -1,7 +1,7 @@
 .benefits-section {
   padding: 80px 0 40px 0;
   position: relative;
-  background: var(--c-blue-primary);
+  background: linear-gradient(180deg, var(--bg-color), var(--c-blue-primary));
   color: var(--c-white);
 }
 
@@ -35,7 +35,7 @@
 
 .benefits-header p {
   font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-on-dark);
 }
 
 .benefits-grid {
@@ -58,12 +58,13 @@
   flex-direction: column;
   transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-  background: rgba(28, 28, 28, 0.4);
+  background: var(--benefit-card-bg);
   border-radius: 16px;
+  border: 1px solid transparent;
 }
 
 .benefit-card:hover {
-  background: rgba(28, 28, 28, 0.6);
+  background: var(--benefit-card-hover);
   border-color: rgba(105, 151, 207, 0.4);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
@@ -114,7 +115,7 @@
 }
 
 .benefit-content p {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-on-dark);
   font-size: 1rem;
   line-height: 1.6;
   margin: 20px 0 0 0;

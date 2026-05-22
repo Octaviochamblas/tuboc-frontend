@@ -19,7 +19,7 @@
 }
 
 .footer-brand p {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-on-dark);
 }
 
 .footer-links {
@@ -28,7 +28,7 @@
 }
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-on-dark);
   font-weight: 500;
   transition: color 0.2s;
 }

@@ -5,7 +5,7 @@
   align-items: center;
   overflow: hidden;
   padding: 140px 0 80px 0;
-  background: radial-gradient(circle at 80% 20%, rgba(105, 151, 207, 0.15), transparent 50%), var(--bg-color);
+  background: radial-gradient(circle at 80% 20%, var(--hero-gradient), transparent 50%), var(--bg-color);
 }
 
 .hero-grid {
@@ -25,7 +25,7 @@
 }
 
 .hero-tagline {
-  color: var(--c-blue-primary);
+  color: var(--title-accent);
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -39,7 +39,7 @@
 }
 
 .hero-title span {
-  color: var(--c-blue-primary);
+  color: var(--title-accent);
 }
 
 .hero-description {
@@ -86,7 +86,7 @@
 .hero-price {
   font-size: 2rem;
   font-weight: 900;
-  color: var(--c-dark);
+  color: var(--text-color);
 }
 
 .hero-visual {
@@ -101,23 +101,23 @@
   width: 100%;
   max-width: 400px;
   height: 600px;
-  background: linear-gradient(135deg, rgba(0,0,0,0.03), rgba(0,0,0,0));
-  border: 1px solid rgba(0,0,0,0.08);
+  background: var(--pipe-bg);
+  border: 1px solid var(--pipe-border);
   border-radius: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 50px var(--pipe-shadow);
   backdrop-filter: blur(10px);
 }
 
 .pipe-cylinder {
   width: 60px;
   height: 400px;
-  background: linear-gradient(90deg, rgba(0,0,0,0.05), rgba(0,0,0,0.1) 20%, rgba(0,0,0,0.05) 80%, rgba(0,0,0,0));
+  background: linear-gradient(90deg, var(--pipe-cyl-bg1), var(--pipe-cyl-bg2) 20%, var(--pipe-cyl-bg1) 80%, rgba(255,255,255,0));
   border-radius: 30px;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid var(--pipe-cyl-border);
   position: relative;
   overflow: hidden;
 }

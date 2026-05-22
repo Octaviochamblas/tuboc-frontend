@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ShoppingBag } from 'lucide-react';
+import { Menu, X, ShoppingBag, Sun, Moon } from 'lucide-react';
 import logoImg from '../assets/logo_v3.png';
 import './Header.css';
 
-export default function Header() {
+export default function Header({ theme, toggleTheme }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -26,6 +26,9 @@ export default function Header() {
         </a>
         
         <div className="header-actions">
+          <button className="theme-toggle" onClick={toggleTheme} aria-label="Alternar tema">
+            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+          </button>
           <a href="https://tuboc.shop" target="_blank" rel="noreferrer" className="btn-buy-nav">
             <ShoppingBag size={18} /> Comprar
           </a>
