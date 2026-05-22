@@ -1,0 +1,125 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.top-bar {
+  background: var(--c-blue-light);
+  color: var(--c-dark);
+  text-align: center;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+  max-height: 50px;
+}
+
+.header.scrolled,
+.header.menu-open {
+  background: rgba(28, 28, 28, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.header.scrolled .top-bar {
+  max-height: 0;
+  padding: 0 16px;
+  opacity: 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  transition: padding 0.3s ease;
+}
+
+.header.scrolled .header-container {
+  padding: 16px 0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: var(--c-white);
+  letter-spacing: 3px;
+  font-family: var(--font-heading);
+}
+
+.desktop-nav {
+  width: 100%;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease;
+}
+
+.desktop-nav.open {
+  max-height: 400px;
+}
+
+.nav-links-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-bottom: 32px;
+  padding-top: 16px;
+  width: 100%;
+}
+
+.desktop-nav a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--c-white);
+  transition: color 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.desktop-nav a:hover {
+  color: var(--c-blue-light);
+}
+
+.btn-buy-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--c-blue-light);
+  color: var(--c-dark) !important;
+  padding: 8px 24px;
+  border-radius: 99px;
+}
+
+.btn-buy-nav:hover {
+  background: var(--c-white);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.mobile-toggle {
+  display: block;
+  background: none;
+  border: none;
+  color: var(--c-white);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+}
