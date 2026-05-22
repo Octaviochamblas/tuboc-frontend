@@ -129,14 +129,18 @@
     flex-direction: column;
   }
   .benefits-content {
+    display: contents;
+  }
+  .benefits-header {
     order: 1;
+    text-align: center;
   }
   .benefits-media {
     order: 2;
     min-height: 400px;
   }
-  .benefits-header {
-    text-align: center;
+  .benefits-grid {
+    order: 3;
   }
   .benefits-header h2 {
     font-size: 2.2rem;

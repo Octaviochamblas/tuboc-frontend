@@ -214,13 +214,20 @@
     flex-direction: column;
   }
   
-  .product-media {
-    min-height: 400px;
-    order: 2;
+  .product-copy {
+    display: contents;
   }
   
-  .product-copy {
-    order: 1;
+  .product-kicker { order: 1; }
+  .product-copy h2 { order: 2; }
+  
+  .product-media {
+    order: 3;
+    min-height: 400px;
+  }
+  
+  .product-features {
+    order: 4;
   }
   
   .solution-content p, .feature-content p {

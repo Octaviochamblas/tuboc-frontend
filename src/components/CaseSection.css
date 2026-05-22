@@ -161,19 +161,26 @@
   }
 
   .case-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 40px;
   }
   
-  .case-copy h2 {
-    font-size: 2.2rem;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
+  .case-copy {
+    display: contents;
   }
   
+  .case-kicker { order: 1; }
+  .case-copy h2 { order: 2; font-size: 2.2rem; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto; }
+  .case-copy p { order: 3; }
+  
   .case-media {
+    order: 4;
     min-height: 400px;
+  }
+  
+  .case-points {
+    order: 5;
   }
   
   .case-point-content p {
