@@ -52,6 +52,10 @@
     align-items: center;
   }
   
+  .footer-brand img {
+    margin: 0 auto 16px auto !important;
+  }
+  
   .footer-links {
     flex-direction: column;
     gap: 16px;

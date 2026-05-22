@@ -69,10 +69,6 @@ export default function CaseSection() {
             <div className="media-placeholder" style={{ padding: 0, overflow: 'hidden' }}>
               <img src={carcasaImg} alt="Carcasa TUBOC" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
-            <div className="case-badge">
-              <strong>Carcasa protectora</strong>
-              <span>Guardado reservado, protección ante traslados y transporte más ordenado en una solución diseñada para acompañar la pieza.</span>
-            </div>
           </motion.div>
 
         </div>
