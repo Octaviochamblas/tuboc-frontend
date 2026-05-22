@@ -127,6 +127,7 @@
   .benefits-layout {
     display: flex;
     flex-direction: column;
+    gap: 0;
   }
   .benefits-content {
     display: contents;
@@ -138,6 +139,7 @@
   .benefits-media {
     order: 2;
     min-height: 400px;
+    margin-bottom: 32px;
   }
   .benefits-grid {
     order: 3;

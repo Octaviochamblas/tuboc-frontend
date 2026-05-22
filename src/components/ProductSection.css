@@ -212,6 +212,7 @@
   .product-grid {
     display: flex;
     flex-direction: column;
+    gap: 0;
   }
   
   .product-copy {
@@ -225,6 +226,7 @@
   .product-media {
     order: 4;
     min-height: 400px;
+    margin-bottom: 32px;
   }
   
   .product-features {

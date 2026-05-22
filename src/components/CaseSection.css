@@ -163,7 +163,7 @@
   .case-grid {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 0;
   }
   
   .case-copy {
@@ -177,6 +177,7 @@
   .case-media {
     order: 4;
     min-height: 400px;
+    margin-bottom: 32px;
   }
   
   .case-points {
