@@ -50,8 +50,8 @@
   --solution-chevron: var(--c-gray);
   --product-border-bottom: rgba(255, 255, 255, 0.1);
 
-  --benefit-card-bg: transparent;
-  --benefit-card-hover: transparent;
+  --benefit-card-bg: var(--hero-card-bg);
+  --benefit-card-hover: rgba(255, 255, 255, 0.1);
   --case-point-bg: rgba(255, 255, 255, 0.05);
   --case-point-hover: rgba(255, 255, 255, 0.1);
   
@@ -112,8 +112,8 @@
   --solution-chevron: rgba(255, 255, 255, 0.7);
   --product-border-bottom: rgba(0, 0, 0, 0.1);
 
-  --benefit-card-bg: rgba(28, 28, 28, 0.4);
-  --benefit-card-hover: rgba(28, 28, 28, 0.6);
+  --benefit-card-bg: var(--hero-card-bg);
+  --benefit-card-hover: var(--c-blue-medium);
   --case-point-bg: rgba(28, 28, 28, 0.4);
   --case-point-hover: rgba(28, 28, 28, 0.6);
   
