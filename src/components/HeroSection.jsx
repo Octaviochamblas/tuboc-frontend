@@ -26,14 +26,14 @@ export default function HeroSection() {
               <span>portátiles</span>
             </h1>
             <div 
-              className={`solution-feature glass-card ${openSolution ? 'open' : ''}`}
+              className={`solution-feature ${openSolution ? 'open' : ''}`}
               onClick={() => setOpenSolution(!openSolution)}
-              style={{marginBottom: '24px', marginTop: '16px', padding: '16px 20px', textAlign: 'left'}}
+              style={{marginBottom: '24px', marginTop: '16px', padding: '16px 20px', textAlign: 'left', background: 'var(--c-blue-primary)', borderRadius: '16px', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)'}}
             >
               <div className="solution-feature-header">
-                <div className="solution-icon" style={{width: '28px', height: '28px', minWidth: '28px', fontSize: '0.9rem'}}>✓</div>
-                <strong style={{fontSize: '1rem', textAlign: 'left', lineHeight: '1.4'}}>¿Cómo hacer pipas de agua más portables, robustas y discretas sin perder funcionalidad?</strong>
-                <ChevronDown className="solution-chevron" size={18} />
+                <div className="solution-icon" style={{width: '28px', height: '28px', minWidth: '28px', fontSize: '0.9rem', color: 'var(--c-dark)'}}>✓</div>
+                <strong style={{fontSize: '1rem', textAlign: 'left', lineHeight: '1.4', color: 'var(--c-white)'}}>¿Cómo hacer pipas de agua más portables, robustas y discretas sin perder funcionalidad?</strong>
+                <ChevronDown className="solution-chevron" style={{color: 'var(--c-white)'}} size={18} />
               </div>
               <AnimatePresence>
                 {openSolution && (
@@ -43,8 +43,8 @@ export default function HeroSection() {
                     exit={{ height: 0, opacity: 0 }}
                     className="solution-content"
                   >
-                    <p style={{marginBottom: '10px', fontSize: '0.9rem', paddingLeft: '48px'}}>Sintetizamos las prestaciones funcionales del filtrado del humo en el agua, propio de los bongs convencionales, en una pieza portatil y robusta, concebida como una estructura tubular libre de puntos vulnerables.</p>
-                    <p style={{fontSize: '0.9rem', paddingLeft: '48px'}}>Cada unidad incorpora una carcasa personalizada que resguarda el dispositivo durante su transporte y almacenamiento, aportando protección, discreción y una presencia sobria y refinada.</p>
+                    <p style={{marginBottom: '10px', fontSize: '0.9rem', paddingLeft: '48px', color: 'rgba(255, 255, 255, 0.8)'}}>Sintetizamos las prestaciones funcionales del filtrado del humo en el agua, propio de los bongs convencionales, en una pieza portatil y robusta, concebida como una estructura tubular libre de puntos vulnerables.</p>
+                    <p style={{fontSize: '0.9rem', paddingLeft: '48px', color: 'rgba(255, 255, 255, 0.8)'}}>Cada unidad incorpora una carcasa personalizada que resguarda el dispositivo durante su transporte y almacenamiento, aportando protección, discreción y una presencia sobria y refinada.</p>
                   </motion.div>
                 )}
               </AnimatePresence>

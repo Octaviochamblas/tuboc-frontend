@@ -91,14 +91,14 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: var(--c-blue-light);
-  color: var(--c-dark) !important;
+  background: var(--c-blue-primary);
+  color: var(--c-white) !important;
   padding: 8px 24px;
   border-radius: 99px;
 }
 
 .btn-buy-nav:hover {
-  background: var(--c-white);
+  background: var(--c-blue-medium);
 }
 
 .header-actions {
