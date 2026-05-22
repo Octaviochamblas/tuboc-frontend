@@ -1,5 +1,5 @@
 .benefits-section {
-  padding: 120px 0;
+  padding: 80px 0 40px 0;
   position: relative;
   background: linear-gradient(180deg, var(--bg-color), var(--c-blue-primary));
 }
