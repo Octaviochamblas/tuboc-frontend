@@ -32,7 +32,7 @@
 
 .case-copy > p {
   font-size: 1.15rem;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 40px;
 }
 
@@ -104,7 +104,7 @@
   padding-left: 68px; /* 48px icon + 20px gap */
   margin-top: 16px;
   margin-bottom: 0;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.95rem;
   line-height: 1.5;
 }
@@ -149,7 +149,7 @@
 }
 
 .case-badge span {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.95rem;
   line-height: 1.5;
 }
