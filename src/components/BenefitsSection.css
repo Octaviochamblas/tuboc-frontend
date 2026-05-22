@@ -125,7 +125,15 @@
 
 @media (max-width: 968px) {
   .benefits-layout {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+  }
+  .benefits-content {
+    order: 1;
+  }
+  .benefits-media {
+    order: 2;
+    min-height: 400px;
   }
   .benefits-header {
     text-align: center;
@@ -143,8 +151,5 @@
   .benefit-content p {
     padding-left: 0;
     margin-top: 15px;
-  }
-  .benefits-media {
-    min-height: 400px;
   }
 }
