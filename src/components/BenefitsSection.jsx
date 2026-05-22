@@ -75,8 +75,8 @@ export default function BenefitsSection() {
             viewport={{ once: false, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="media-placeholder" style={{ padding: 0, overflow: 'hidden', height: '100%', width: '100%' }}>
-              <img src={beneficiosImg} alt="TUBOC Beneficios" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <div className="media-placeholder" style={{ padding: 0, overflow: 'hidden', height: '100%', width: '100%', borderRadius: '24px' }}>
+              <img src={beneficiosImg} alt="TUBOC Beneficios" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '24px' }} />
             </div>
           </motion.div>
         </div>
