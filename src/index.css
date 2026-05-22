@@ -90,7 +90,7 @@
   --glass-card-shadow: rgba(0, 0, 0, 0.1);
 
   --hero-gradient: rgba(105, 151, 207, 0.15);
-  --title-accent: var(--c-blue-primary);
+  --title-accent: var(--c-blue-light);
   --hero-card-bg: var(--c-blue-primary);
   --hero-card-text: var(--c-white);
   --hero-card-icon-text: var(--c-dark);
