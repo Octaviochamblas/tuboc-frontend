@@ -21,7 +21,7 @@ Al iniciar sesión, revisar estas carpetas en la raíz para contextualizar el es
 - **`Desarrollado/`** — tareas en progreso (mover el `.md` aquí al empezarlas, anotar decisiones dentro).
 - **`Finalizado/`** — tareas terminadas (incluye el registro de las fases 0–2 ya completadas).
 
-Estado actual (junio 2026): fases 0, 0.5, 1 y 2 completadas y desplegadas. Pendiente: fase 3 (sticky-scroll, FAQ 2 columnas, Lenis, botón magnético, sección especificaciones, bloque confianza), assets (foto en mano, logo SVG) y fase 4 opcional (3D).
+Estado actual (junio 2026): fases 0, 0.5, 1, 2 y 3 completadas. Pendiente: assets (foto en mano, logo SVG, limpieza de originales pesados con respaldo confirmado) y fase 4 opcional (3D).
 
 ## Reglas duras
 - Confirmar con el usuario antes de `git push` a `main` (es producción).

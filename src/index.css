@@ -30,6 +30,10 @@
   /* ─── Movimiento premium ─── */
   --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
 
+  /* Compensación del header fijo al saltar a una sección (#ancla).
+     Fuente de verdad: el hook useLenis lee este valor para su offset. */
+  --anchor-offset: 96px;
+
   /* ─── Glass / superficies ─── */
   --glass-bg:          rgba(255, 255, 255, 0.05);
   --glass-border:      rgba(255, 255, 255, 0.1);
@@ -193,6 +197,12 @@ html, body {
   overflow-x: hidden;
   width: 100%;
   position: relative;
+}
+
+/* Evita que el header fijo tape el inicio de la sección al saltar a un #ancla
+   (cubre el salto nativo cuando Lenis está desactivado por reduced-motion). */
+section[id] {
+  scroll-margin-top: var(--anchor-offset);
 }
 
 h1, h2, h3, h4, h5, h6 {

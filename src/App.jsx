@@ -12,8 +12,11 @@ import TrustSection from './components/TrustSection';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import MobileBuyBar from './components/MobileBuyBar';
+import useLenis from './hooks/useLenis';
 
 function App() {
+  useLenis();
+
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem('tuboc-theme');
     if (savedTheme) return savedTheme;

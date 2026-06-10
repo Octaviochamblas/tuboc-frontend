@@ -73,6 +73,22 @@
 - **Glow de cursor en spec cards:** se replicó el efecto `::before` con `radial-gradient` y `--mx`/`--my` idéntico a BenefitsSection. Entrada `y: 40→0` con stagger de 0.1s.
 - **Foto `tuboc4.jpg`** usada para la sección Specs (muestra las pipas en azul, relevante para las specs de color).
 
+## Ajustes post-revisión (Lenis, 2026-06-10)
+
+- **Lenis smooth scroll integrado:** se instaló `lenis` y se creó `src/hooks/useLenis.js`.
+- **Compatibilidad con Framer Motion:** se mantuvo Lenis sobre el scroll de `window`, sin wrappers transformados ni cambios en componentes `whileInView` / `useInView`.
+- **Reduced motion:** si `prefers-reduced-motion: reduce` está activo, Lenis no se crea.
+- **Mobile/touch:** se dejó `syncTouch: false` para conservar touch nativo y evitar inestabilidad móvil.
+- **Anchors:** se activaron anchors con `offset: -96` para compensar el header fijo. Prueba manual: `#carcasa` queda a ~96px del top.
+
+### Corrección de offset (revisión Claude Code)
+
+- **Bug detectado:** el salto **nativo** (ruta con `prefers-reduced-motion`, donde Lenis no se inicializa) ignoraba el header fijo por completo — las secciones aterrizaban en `top: 0`, con el título tapado. Medido en navegador.
+- **Fix:** se añadió `scroll-margin-top: var(--anchor-offset)` a `section[id]` en `index.css`, con `--anchor-offset: 96px` como token único en `:root`.
+- **Una sola fuente de verdad:** `useLenis.js` ahora lee `--anchor-offset` vía `getComputedStyle` en vez de hardcodear `-96`, para que el salto suave y el nativo dejen exactamente el mismo gap bajo el header.
+- **Nota sobre el header:** mide 130px arriba y ~80px al hacer scroll (la barra superior se colapsa). El offset de 96px deja ~16px de aire bajo el header en estado scrolled, que es el estado en que aterrizan todos los anchors bajo el fold.
+- Verificado con `npm run build` (OK) y medición del DOM: las secciones ahora aterrizan a 96px del top.
+
 ## Pendientes
 
 - Foto real de producto en mano + carcasa cerrada para demostrar visualmente el claim "cabe en tu mano".
@@ -80,5 +96,4 @@
 - Confirmar respaldo externo antes de eliminar originales pesados no usados:
   - `Tuboc Horizontal 2.mp4`
   - `TUBOC + Carcasa.JPG`
-- Revaluar Lenis o smooth scroll solo si se resuelve compatibilidad con Framer Motion.
 - Producto 3D queda como fase futura opcional y dependiente de un modelo 3D real.
