@@ -61,7 +61,7 @@ export default function CTASection() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="cta-image-container">
-              <img src={pipasImg} alt="Pipas de agua TUBOC en vidrio azul profundo" loading="lazy" decoding="async" />
+              <img src={pipasImg} alt="POC de TUBOC — pipa de agua en vidrio azul profundo" loading="lazy" decoding="async" />
             </div>
           </motion.div>
         </div>

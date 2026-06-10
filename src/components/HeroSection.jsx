@@ -30,7 +30,7 @@ export default function HeroSection() {
           <motion.div className="hero-heading" {...reveal(0)}>
             <span className="hero-tagline">Innovación · Portabilidad · Discreción</span>
             <h1 className="hero-title">
-              La pipa de agua portátil <span>que cabe en tu mano</span>
+              <span>Conoce POC:</span> La pipa de agua portátil <span>que cabe en tu mano</span>
             </h1>
           </motion.div>
 
@@ -84,7 +84,7 @@ export default function HeroSection() {
               <picture>
                 <source srcSet={heroAvif} type="image/avif" />
                 <source srcSet={heroWebp} type="image/webp" />
-                <img src={heroJpg} alt="Pipa de agua TUBOC junto a su carcasa protectora" />
+                <img src={heroJpg} alt="POC de TUBOC junto a su carcasa protectora" />
               </picture>
               <span className="hero-badge">Incluye carcasa protectora</span>
             </div>
@@ -95,9 +95,9 @@ export default function HeroSection() {
           </motion.div>
 
           <motion.p className="hero-description" {...reveal(0.25)}>
-            Bong en formato tubular compacto, protegido dentro de su carcasa
-            para transportarlo con discreción, sin la estética voluminosa de
-            las pipas de agua tradicionales.
+            TUBOC presenta POC, un bong en formato tubular compacto, protegido
+            dentro de su carcasa para transportarlo con discreción, sin la
+            estética voluminosa de las pipas de agua tradicionales.
           </motion.p>
 
           <motion.div className="hero-actions" {...reveal(0.3)}>

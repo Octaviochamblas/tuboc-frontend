@@ -73,7 +73,7 @@ export default function CaseSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="media-placeholder" style={{ padding: 0, overflow: 'hidden' }}>
-              <img src={carcasaImg} alt="Carcasa TUBOC" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src={carcasaImg} alt="Carcasa POC de TUBOC" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
           </motion.div>
 

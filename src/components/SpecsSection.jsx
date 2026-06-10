@@ -57,7 +57,7 @@ export default function SpecsSection() {
             viewport={{ once: false, margin: '-60px' }}
             transition={{ duration: 0.8, ease: easePremium, delay: 0.15 }}
           >
-            <img src={specsImg} alt="TUBOC — pipa de agua portátil en vidrio azul" loading="lazy" decoding="async" />
+            <img src={specsImg} alt="POC de TUBOC — pipa de agua portátil en vidrio azul" loading="lazy" decoding="async" />
           </motion.div>
         </div>
       </div>

@@ -38,7 +38,7 @@ export default function TrustSection() {
         >
           <div className="trust-heading">
             <span>Compra con claridad</span>
-            <h2 id="trust-title">Lo esencial antes de elegir TUBOC.</h2>
+            <h2 id="trust-title">Lo esencial antes de elegir POC.</h2>
           </div>
 
           <div className="trust-grid">

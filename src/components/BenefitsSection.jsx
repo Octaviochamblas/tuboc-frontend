@@ -8,7 +8,7 @@ const benefits = [
   { icon: <Droplets size={28} />, title: "Funcionalidad", desc: "Elevamos la experiencia tradicional incorporando la eficiencia del filtrado de agua en un formato de pipa directa. Una calada más suave y limpia sin la complejidad de los bongs convencionales." },
   { icon: <Hand size={28} />, title: "Portabilidad", desc: "Diseñada para llevarla contigo. Su formato compacto está pensado para encajar perfectamente en la palma de tu mano, ofreciendo una experiencia totalmente portátil sin sacrificar rendimiento." },
   { icon: <EyeOff size={28} />, title: "Discreción", desc: "Su estuche permite un almacenamiento completamente reservado. Una vez guardado, el dispositivo pasa desapercibido, evitando llamar la atención en tu entorno y manteniendo tu privacidad intacta." },
-  { icon: <ShieldCheck size={28} />, title: "Protección", desc: "El vidrio está respaldado por su carcasa protectora. Este case a medida absorbe impactos y evita la fricción, convirtiendo a TUBOC en una pieza robusta y segura para el transporte diario." }
+  { icon: <ShieldCheck size={28} />, title: "Protección", desc: "El vidrio está respaldado por su carcasa protectora. Este case a medida absorbe impactos y evita la fricción, convirtiendo a POC en una pieza robusta y segura para el transporte diario." }
 ];
 
 // Glow de borde que sigue al cursor (solo desktop con hover)

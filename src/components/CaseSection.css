@@ -124,14 +124,14 @@
 }
 
 .case-media {
-  position: sticky;
-  top: 118px;
+  position: relative;
+  align-self: stretch; /* llena la altura completa de la columna de texto */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 40px;
   overflow: hidden;
-  min-height: min(620px, calc(100vh - 160px));
+  min-height: 480px; /* piso razonable cuando la columna es corta */
 }
 
 .media-placeholder {
