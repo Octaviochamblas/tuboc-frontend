@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion';
 import './CTASection.css';
-import carcasaAvif from '../assets/optimized/tuboc-carcasa.avif';
-import carcasaWebp from '../assets/optimized/tuboc-carcasa.webp';
-import carcasaJpg from '../assets/optimized/tuboc-carcasa.jpg';
+import pipasImg from '../assets/tuboc4.jpg';
 
 export default function CTASection() {
   return (
@@ -32,11 +30,7 @@ export default function CTASection() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="cta-image-container">
-              <picture>
-                <source srcSet={carcasaAvif} type="image/avif" />
-                <source srcSet={carcasaWebp} type="image/webp" />
-                <img src={carcasaJpg} alt="TUBOC con carcasa" loading="lazy" decoding="async" />
-              </picture>
+              <img src={pipasImg} alt="Pipas de agua TUBOC en vidrio azul profundo" loading="lazy" decoding="async" />
             </div>
           </motion.div>
         </div>

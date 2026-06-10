@@ -5,7 +5,6 @@ import './FAQSection.css';
 
 const faqs = [
   { question: "¿Qué es TUBOC?", answer: "Somos una empresa dedicada a la creación de pipas de agua orientadas a la portabilidad y discreción." },
-  { question: "¿Cuál es el precio?", answer: "El precio de lanzamiento es de $64.990 para la primera edición, sujeto a disponibilidad al momento de la compra." },
   { question: "¿Qué color está disponible?", answer: "La primera edición está disponible en vidrio azul oscuro." },
   { question: "¿Incluye envase?", answer: "Sí. Cada pieza incluye una carcasa protectora personalizada, diseñada para facilitar el guardado, el transporte y la conservación del producto." },
   { question: "¿Cómo se compra?", answer: "Puedes comprar directamente por WhatsApp. Te enviaremos la información de pago, disponibilidad y despacho según tu ciudad." },

@@ -1,8 +1,8 @@
 .benefits-section {
   padding: 80px 0 40px 0;
   position: relative;
-  background: linear-gradient(180deg, var(--bg-color), var(--c-blue-primary));
-  color: var(--text-color);
+  background: linear-gradient(180deg, var(--bg), var(--surface));
+  color: var(--text);
 }
 
 .benefits-layout {
@@ -27,7 +27,7 @@
 .benefits-header h2 {
   font-size: 3rem;
   margin-bottom: 24px;
-  color: var(--text-color);
+  color: var(--text);
 }
 
 .benefits-header h2 span {
@@ -36,7 +36,7 @@
 
 .benefits-header p {
   font-size: 1.15rem;
-  color: var(--text-color);
+  color: var(--text);
 }
 
 .benefits-grid {
@@ -51,20 +51,50 @@
   position: relative;
   display: flex;
   min-height: 400px;
+  overflow: hidden;
 }
 
+.benefits-media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+}
+
+/* ─── Cards: contenido siempre visible + glow al cursor ─── */
 .benefit-card {
-  padding: 24px 30px;
+  position: relative;
+  overflow: hidden;
+  padding: 24px 30px 28px 30px;
   display: flex;
   flex-direction: column;
-  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   background: var(--benefit-card-bg);
   border-radius: 16px;
   border: 1px solid transparent;
 }
 
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    240px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(105, 151, 207, 0.16),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.benefit-card:hover::before {
+  opacity: 1;
+}
+
 .benefit-card:hover {
-  background: var(--benefit-card-hover);
   border-color: rgba(105, 151, 207, 0.4);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
@@ -74,32 +104,25 @@
   align-items: center;
   gap: 20px;
   width: 100%;
-  background: transparent;
-  border: 0;
-  color: inherit;
-  cursor: pointer;
-  font: inherit;
-  padding: 0;
-  text-align: left;
 }
 
 .benefit-icon {
   width: 54px;
   height: 54px;
-  background: var(--c-blue-medium);
+  background: var(--interactive);
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--c-white);
-  transition: transform 0.3s ease, background 0.3s ease;
+  color: var(--palette-white);
+  transition: transform 0.3s var(--ease-premium), background 0.3s ease, color 0.3s ease;
   flex-shrink: 0;
 }
 
-.benefit-card:hover .benefit-icon, .benefit-card.open .benefit-icon {
+.benefit-card:hover .benefit-icon {
   transform: scale(1.05);
-  background: var(--c-blue-light);
-  color: var(--c-dark);
+  background: var(--accent);
+  color: var(--palette-ink);
 }
 
 .benefit-card-title {
@@ -108,35 +131,17 @@
   font-weight: 800;
   margin: 0;
   flex-grow: 1;
-  color: var(--c-white);
+  color: var(--palette-white);
 }
 
-.benefit-card-header:focus-visible {
-  outline: 2px solid var(--c-blue-light);
-  outline-offset: 4px;
-  border-radius: 12px;
-}
-
-.benefit-chevron {
-  color: var(--c-gray);
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.benefit-card.open .benefit-chevron {
-  transform: rotate(180deg);
-  color: var(--c-white);
-}
-
-.benefit-content {
-  overflow: hidden;
-}
-
-.benefit-content p {
+.benefit-desc {
   color: var(--text-on-dark);
   font-size: 1rem;
   line-height: 1.6;
-  margin: 20px 0 0 0;
-  padding-left: 74px; /* Align with text (54px icon + 20px gap) */
+  margin: 18px 0 0 0;
+  padding-left: 74px; /* Alineado con el título (54px icono + 20px gap) */
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -176,7 +181,7 @@
     width: 44px;
     height: 44px;
   }
-  .benefit-content p {
+  .benefit-desc {
     padding-left: 0;
     margin-top: 15px;
   }

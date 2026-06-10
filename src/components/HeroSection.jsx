@@ -1,91 +1,82 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, ChevronDown } from 'lucide-react';
-import tubocImg from '../assets/tuboc4.jpg';
+import { motion } from 'framer-motion';
+import { ShoppingBag, Hand, EyeOff, ShieldCheck } from 'lucide-react';
+import heroAvif from '../assets/optimized/tuboc-carcasa.avif';
+import heroWebp from '../assets/optimized/tuboc-carcasa.webp';
+import heroJpg from '../assets/optimized/tuboc-carcasa.jpg';
 import './HeroSection.css';
 
-export default function HeroSection() {
-  const [openSolution, setOpenSolution] = useState(false);
+const claims = [
+  { icon: <Hand size={22} />, title: 'Portátil', desc: 'Del tamaño de tu mano: llévala contigo donde quieras.' },
+  { icon: <EyeOff size={22} />, title: 'Discreta', desc: 'Su diseño minimalista pasa completamente desapercibido.' },
+  { icon: <ShieldCheck size={22} />, title: 'Protegida', desc: 'Su carcasa absorbe golpes y contiene los olores.' },
+];
 
+const easePremium = [0.16, 1, 0.3, 1];
+const reveal = (delay) => ({
+  initial: { opacity: 0, y: 28 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, ease: easePremium, delay },
+});
+
+export default function HeroSection() {
   return (
     <section className="hero-section" id="producto">
       <div className="container">
         <div className="hero-grid">
-          
-          <motion.div 
-            className="hero-content"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <span className="hero-tagline">Innovación - Portabilidad - Discreción</span>
-            <h1 className="hero-title">
-              <span>Innovación</span> <br /> 
-              en pipas <br />
-              de agua <br />
-              <span>portátiles</span>
-            </h1>
-            <div 
-              className={`solution-feature glass-card ${openSolution ? 'open' : ''}`}
-              style={{marginBottom: '24px', marginTop: '16px', padding: '16px 20px', textAlign: 'left', background: 'var(--hero-card-bg)', borderColor: 'transparent', boxShadow: 'var(--glass-card-shadow)'}}
-            >
-              <button
-                type="button"
-                className="solution-feature-header"
-                onClick={() => setOpenSolution(!openSolution)}
-                aria-expanded={openSolution}
-                aria-controls="hero-solution-content"
-              >
-                <div className="solution-icon" style={{width: '28px', height: '28px', minWidth: '28px', fontSize: '0.9rem', color: 'var(--hero-card-icon-text)'}}>✓</div>
-                <strong style={{fontSize: '1rem', textAlign: 'left', lineHeight: '1.4', color: 'var(--hero-card-text)'}}>¿Cómo hacer pipas de agua más portables, robustas y discretas sin perder funcionalidad?</strong>
-                <ChevronDown className="solution-chevron" style={{color: 'var(--hero-card-text)'}} size={18} />
-              </button>
-              <AnimatePresence>
-                {openSolution && (
-                  <motion.div 
-                    id="hero-solution-content"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    className="solution-content"
-                  >
-                    <p style={{marginBottom: '10px', fontSize: '0.9rem', paddingLeft: '48px', color: 'var(--hero-card-text)', opacity: 0.8}}>Sintetizamos las prestaciones funcionales del filtrado del humo en el agua, propio de los bongs convencionales, en una pieza portatil y robusta, concebida como una estructura tubular libre de puntos vulnerables.</p>
-                    <p style={{fontSize: '0.9rem', paddingLeft: '48px', color: 'var(--hero-card-text)', opacity: 0.8}}>Cada unidad incorpora una carcasa personalizada que resguarda el dispositivo durante su transporte y almacenamiento, aportando protección, discreción y una presencia sobria y refinada.</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
 
-            <p className="hero-description" style={{marginBottom: '40px'}}>
-              Ofrecemos bongs portátiles de vidrio borosilicato en formato tubular compacto. Incluyen su carcasa protectora para un transporte seguro y discreto.
-            </p>
-            
+          <motion.div className="hero-heading" {...reveal(0)}>
+            <span className="hero-tagline">Innovación · Portabilidad · Discreción</span>
+            <h1 className="hero-title">
+              La pipa de agua portátil <span>que cabe en tu mano</span>
+            </h1>
           </motion.div>
 
-          <motion.div 
-            className="hero-visual"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}
-          >
-            {/* 3D Glass Representation */}
-            <motion.div 
-              className="pipe-photo-container"
-              style={{ width: '100%', display: 'flex', alignItems: 'stretch', justifyContent: 'center' }}
-            >
-              <img src={tubocImg} alt="Pipas TUBOC" style={{ width: '100%', height: '100%', minHeight: '500px', objectFit: 'cover', borderRadius: '16px', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }} />
-            </motion.div>
+          <motion.div className="hero-claims-block" {...reveal(0.15)}>
+            <ul className="hero-claims">
+              {claims.map((claim) => (
+                <li key={claim.title}>
+                  <span className="hero-claim-icon">{claim.icon}</span>
+                  <p><strong>{claim.title}.</strong> {claim.desc}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="hero-positioning">
+              Para quienes buscan una experiencia más compacta, sobria y moderna.
+            </p>
+          </motion.div>
 
-            <div className="hero-actions" style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
-              <div className="hero-price" style={{ fontSize: '2.5rem', marginBottom: '8px' }}>
-                $64.990
-              </div>
-              <a href="https://tuboc.shop" target="_blank" rel="noreferrer" className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '20px 32px' }}>
-                <ShoppingBag size={20} />
-                Comprar ahora
-              </a>
+          <motion.div
+            className="hero-visual"
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: easePremium, delay: 0.2 }}
+          >
+            <div className="hero-photo">
+              <picture>
+                <source srcSet={heroAvif} type="image/avif" />
+                <source srcSet={heroWebp} type="image/webp" />
+                <img src={heroJpg} alt="Pipa de agua TUBOC junto a su carcasa protectora" />
+              </picture>
+              <span className="hero-badge">Incluye carcasa protectora</span>
             </div>
+            <div className="hero-pills">
+              <span>Formato portátil</span>
+              <span>Diseño tubular sin puntos frágiles</span>
+            </div>
+          </motion.div>
+
+          <motion.p className="hero-description" {...reveal(0.25)}>
+            Bong en formato tubular compacto, protegido dentro de su carcasa
+            para transportarlo con discreción, sin la estética voluminosa de
+            las pipas de agua tradicionales.
+          </motion.p>
+
+          <motion.div className="hero-actions" {...reveal(0.3)}>
+            <a href="https://tuboc.shop" target="_blank" rel="noreferrer" className="btn-primary">
+              <ShoppingBag size={20} />
+              Comprar ahora
+            </a>
+            <span className="hero-edition">Primera edición limitada</span>
           </motion.div>
 
         </div>
@@ -93,4 +84,3 @@ export default function HeroSection() {
     </section>
   );
 }
-// Force HMR

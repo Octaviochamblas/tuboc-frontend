@@ -63,13 +63,8 @@
   background-color: var(--c-white);
 }
 
-[data-theme="light"] .btn-buy-large {
-  animation: pulse-hero 2s infinite ease-in-out;
-}
-
 [data-theme="light"] .btn-buy-large:hover {
   background-color: var(--c-blue-primary);
-  animation-play-state: paused;
 }
 
 .cta-image-wrapper {

@@ -3,6 +3,14 @@ import { Menu, X, ShoppingBag, Sun, Moon } from 'lucide-react';
 import logoImg from '../assets/logo_v3.png';
 import './Header.css';
 
+const navLinks = [
+  { href: '#producto', label: 'Producto' },
+  { href: '#carcasa', label: 'Carcasa' },
+  { href: '#portabilidad', label: 'Portabilidad' },
+  { href: '#beneficios', label: 'Beneficios' },
+  { href: '#faq', label: 'Preguntas' },
+];
+
 export default function Header({ theme, toggleTheme }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,13 +26,21 @@ export default function Header({ theme, toggleTheme }) {
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''} ${mobileMenuOpen ? 'menu-open' : ''}`}>
       <div className="top-bar">
-        <span>Primera edición limitada en vidrio azul profundo — $64.990</span>
+        <span>Primera edición limitada en vidrio azul profundo</span>
       </div>
       <div className="container header-container">
         <a href="#" className="logo" onClick={() => setMobileMenuOpen(false)}>
-          <img src={logoImg} alt="TUBOC Logo" style={{ height: '52px', width: 'auto', display: 'block', borderRadius: '8px' }} />
+          <img src={logoImg} alt="TUBOC Logo" />
         </a>
-        
+
+        <nav className={`main-nav ${mobileMenuOpen ? 'open' : ''}`}>
+          {navLinks.map((link) => (
+            <a key={link.href} href={link.href} onClick={() => setMobileMenuOpen(false)}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
         <div className="header-actions">
           <button className="theme-toggle" onClick={toggleTheme} aria-label="Alternar tema">
             {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
@@ -32,21 +48,16 @@ export default function Header({ theme, toggleTheme }) {
           <a href="https://tuboc.shop" target="_blank" rel="noreferrer" className="btn-buy-nav">
             <ShoppingBag size={18} /> Comprar
           </a>
-          <button className="mobile-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          <button
+            className="mobile-toggle"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={mobileMenuOpen}
+          >
             {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
-
-      <nav className={`desktop-nav ${mobileMenuOpen ? 'open' : ''}`}>
-        <div className="container nav-links-container">
-          <a href="#producto" onClick={() => setMobileMenuOpen(false)}>Producto</a>
-          <a href="#carcasa" onClick={() => setMobileMenuOpen(false)}>Carcasa</a>
-          <a href="#portabilidad" onClick={() => setMobileMenuOpen(false)}>Portabilidad</a>
-          <a href="#beneficios" onClick={() => setMobileMenuOpen(false)}>Beneficios</a>
-          <a href="#faq" onClick={() => setMobileMenuOpen(false)}>Preguntas</a>
-        </div>
-      </nav>
     </header>
   );
 }
