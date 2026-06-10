@@ -35,7 +35,7 @@
   }
 
   .mobile-price strong {
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: var(--c-white);
     font-family: var(--font-heading);
   }

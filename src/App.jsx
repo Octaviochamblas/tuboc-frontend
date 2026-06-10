@@ -7,6 +7,8 @@ import CaseSection from './components/CaseSection';
 import ProductSection from './components/ProductSection';
 import FAQSection from './components/FAQSection';
 import CTASection from './components/CTASection';
+import SpecsSection from './components/SpecsSection';
+import TrustSection from './components/TrustSection';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import MobileBuyBar from './components/MobileBuyBar';
@@ -48,6 +50,8 @@ function App() {
         <CaseSection />
         <ProductSection />
         <BenefitsSection />
+        <SpecsSection />
+        <TrustSection />
         <FAQSection />
         <CTASection />
       </main>

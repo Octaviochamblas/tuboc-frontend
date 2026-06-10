@@ -24,8 +24,15 @@
 }
 
 .faq-list {
-  max-width: 800px;
+  max-width: 1120px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.faq-column {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -85,4 +92,10 @@
   padding: 0 30px 30px 30px;
   color: var(--text-on-dark);
   line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .faq-list {
+    grid-template-columns: 1fr;
+  }
 }

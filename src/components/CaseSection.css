@@ -9,7 +9,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  align-items: stretch;
+  align-items: start;
 }
 
 .case-kicker {
@@ -124,12 +124,14 @@
 }
 
 .case-media {
-  position: relative;
+  position: sticky;
+  top: 118px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 40px;
   overflow: hidden;
+  min-height: min(620px, calc(100vh - 160px));
 }
 
 .media-placeholder {
@@ -174,27 +176,26 @@
   }
 
   .case-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
-  
+
   .case-copy {
-    display: contents;
+    order: 1;
   }
-  
-  .case-kicker { order: 1; }
-  .case-copy h2 { order: 2; font-size: 2.2rem; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto; }
-  .case-copy p { order: 3; }
+
+  .case-copy h2 {
+    font-size: 2.2rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
   
   .case-media {
-    order: 4;
+    position: relative;
+    top: auto;
+    order: 2;
     min-height: 400px;
-    margin-bottom: 32px;
-  }
-  
-  .case-points {
-    order: 5;
   }
   
   .case-point-content p {
