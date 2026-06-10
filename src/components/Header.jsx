@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, ShoppingBag, Sun, Moon } from 'lucide-react';
 import logoImg from '../assets/logo_v3.png';
 import './Header.css';
@@ -18,7 +18,7 @@ export default function Header({ theme, toggleTheme }) {
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''} ${mobileMenuOpen ? 'menu-open' : ''}`}>
       <div className="top-bar">
-        <span>🔥 Precio especial de lanzamiento $64.990 — ¡Últimas unidades en azul oscuro!</span>
+        <span>Primera edición limitada en vidrio azul profundo — $64.990</span>
       </div>
       <div className="container header-container">
         <a href="#" className="logo" onClick={() => setMobileMenuOpen(false)}>

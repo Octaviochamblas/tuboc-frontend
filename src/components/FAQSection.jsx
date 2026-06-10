@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import './FAQSection.css';
@@ -36,15 +36,21 @@ export default function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, margin: "-50px" }}
               transition={{ delay: (index % 5) * 0.1 }}
-              onClick={() => setOpenIndex(openIndex === index ? null : index)}
             >
-              <div className="faq-question">
-                <h3>{faq.question}</h3>
+              <button
+                type="button"
+                className="faq-question"
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
+              >
+                <span className="faq-question-title">{faq.question}</span>
                 <ChevronDown className="faq-icon" size={24} />
-              </div>
+              </button>
               <AnimatePresence>
                 {openIndex === index && (
                   <motion.div 
+                    id={`faq-answer-${index}`}
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}

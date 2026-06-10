@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, ChevronDown } from 'lucide-react';
 import tubocImg from '../assets/tuboc4.jpg';
@@ -27,17 +27,23 @@ export default function HeroSection() {
             </h1>
             <div 
               className={`solution-feature glass-card ${openSolution ? 'open' : ''}`}
-              onClick={() => setOpenSolution(!openSolution)}
               style={{marginBottom: '24px', marginTop: '16px', padding: '16px 20px', textAlign: 'left', background: 'var(--hero-card-bg)', borderColor: 'transparent', boxShadow: 'var(--glass-card-shadow)'}}
             >
-              <div className="solution-feature-header">
+              <button
+                type="button"
+                className="solution-feature-header"
+                onClick={() => setOpenSolution(!openSolution)}
+                aria-expanded={openSolution}
+                aria-controls="hero-solution-content"
+              >
                 <div className="solution-icon" style={{width: '28px', height: '28px', minWidth: '28px', fontSize: '0.9rem', color: 'var(--hero-card-icon-text)'}}>✓</div>
                 <strong style={{fontSize: '1rem', textAlign: 'left', lineHeight: '1.4', color: 'var(--hero-card-text)'}}>¿Cómo hacer pipas de agua más portables, robustas y discretas sin perder funcionalidad?</strong>
                 <ChevronDown className="solution-chevron" style={{color: 'var(--hero-card-text)'}} size={18} />
-              </div>
+              </button>
               <AnimatePresence>
                 {openSolution && (
                   <motion.div 
+                    id="hero-solution-content"
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}

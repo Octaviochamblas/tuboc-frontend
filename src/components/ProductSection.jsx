@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import productoImg from '../assets/producto.jpg';
@@ -50,16 +50,22 @@ export default function ProductSection() {
                 <div 
                   key={index}
                   className={`product-feature ${openFeatureIndex === index ? 'open' : ''}`}
-                  onClick={() => setOpenFeatureIndex(openFeatureIndex === index ? null : index)}
                 >
-                  <div className="feature-header">
+                  <button
+                    type="button"
+                    className="feature-header"
+                    onClick={() => setOpenFeatureIndex(openFeatureIndex === index ? null : index)}
+                    aria-expanded={openFeatureIndex === index}
+                    aria-controls={`product-feature-content-${index}`}
+                  >
                     <div className="feature-number">{feat.num}</div>
                     <strong>{feat.title}</strong>
                     <ChevronDown className="feature-chevron" size={20} />
-                  </div>
+                  </button>
                   <AnimatePresence>
                     {openFeatureIndex === index && (
                       <motion.div 
+                        id={`product-feature-content-${index}`}
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}

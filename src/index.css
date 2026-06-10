@@ -60,13 +60,15 @@
   --cta-box-text: var(--c-white);
   --cta-btn-bg: var(--c-blue-light);
   --cta-btn-text: var(--c-dark);
+  --cta-btn-shadow: 0 14px 32px rgba(105, 151, 207, 0.24);
+  --cta-btn-hover: translateY(-3px);
   
   --faq-bg: var(--bg-color);
   --faq-text: var(--text-color);
   
   /* Fuentes */
   --font-body: 'Montserrat', sans-serif;
-  --font-heading: 'Outfit', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
 }
 
 [data-theme="light"] {
@@ -122,6 +124,8 @@
   --cta-box-text: var(--c-white);
   --cta-btn-bg: var(--c-blue-medium);
   --cta-btn-text: var(--c-white);
+  --cta-btn-shadow: 0 14px 32px rgba(33, 40, 79, 0.24);
+  --cta-btn-hover: translateY(-3px);
   
   --faq-bg: var(--c-blue-primary);
   --faq-text: var(--c-white);

@@ -7,6 +7,19 @@
   transition: all 0.3s ease;
 }
 
+.header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -28px;
+  height: 28px;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.16), transparent);
+  transition: opacity 0.3s ease;
+}
+
 .top-bar {
   background: var(--c-blue-light);
   color: var(--c-dark);
@@ -24,8 +37,12 @@
   background: var(--header-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--header-border);
-  box-shadow: 0 4px 30px var(--header-shadow);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.18);
+}
+
+.header.scrolled::after,
+.header.menu-open::after {
+  opacity: 1;
 }
 
 .header.scrolled .top-bar {

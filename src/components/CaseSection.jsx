@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { EyeOff, Shield, Lock, ChevronDown } from 'lucide-react';
 import carcasaImg from '../assets/carcasa_v2.jpg';
@@ -35,16 +35,22 @@ export default function CaseSection() {
                 <div 
                   key={index}
                   className={`case-point ${openCaseIndex === index ? 'open' : ''}`} 
-                  onClick={() => setOpenCaseIndex(openCaseIndex === index ? null : index)}
                 >
-                  <div className="case-point-header">
+                  <button
+                    type="button"
+                    className="case-point-header"
+                    onClick={() => setOpenCaseIndex(openCaseIndex === index ? null : index)}
+                    aria-expanded={openCaseIndex === index}
+                    aria-controls={`case-point-content-${index}`}
+                  >
                     <div className="point-icon">{point.icon}</div>
-                    <h3>{point.title}</h3>
+                    <span className="case-point-title">{point.title}</span>
                     <ChevronDown className="case-chevron" size={20} />
-                  </div>
+                  </button>
                   <AnimatePresence>
                     {openCaseIndex === index && (
                       <motion.div 
+                        id={`case-point-content-${index}`}
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}

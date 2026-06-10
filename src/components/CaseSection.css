@@ -47,7 +47,6 @@
   padding: 24px;
   background: var(--case-point-bg);
   border-radius: 16px;
-  cursor: pointer;
   transition: background 0.3s ease;
 }
 
@@ -60,6 +59,13 @@
   align-items: center;
   gap: 20px;
   width: 100%;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  text-align: left;
 }
 
 .point-icon {
@@ -80,10 +86,18 @@
   color: var(--c-dark);
 }
 
-.case-point-header h3 {
+.case-point-title {
   flex-grow: 1;
+  font-family: var(--font-heading);
+  font-weight: 800;
   font-size: 1.2rem;
   margin: 0;
+}
+
+.case-point-header:focus-visible {
+  outline: 2px solid var(--c-blue-light);
+  outline-offset: 4px;
+  border-radius: 12px;
 }
 
 .case-chevron {

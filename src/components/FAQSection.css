@@ -34,7 +34,6 @@
 .faq-item {
   border-radius: 16px;
   overflow: hidden;
-  cursor: pointer;
   transition: background 0.3s ease;
   background: rgba(28, 28, 28, 0.4);
 }
@@ -48,12 +47,25 @@
   justify-content: space-between;
   align-items: center;
   padding: 24px 30px;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
 }
 
-.faq-question h3 {
+.faq-question-title {
   font-size: 1.15rem;
+  font-family: var(--font-heading);
   font-weight: 600;
   margin: 0;
+}
+
+.faq-question:focus-visible {
+  outline: 2px solid var(--c-blue-light);
+  outline-offset: -4px;
 }
 
 .faq-icon {

@@ -1,7 +1,8 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import './CTASection.css';
-import carcasaImg from '../assets/TUBOC + Carcasa.JPG';
+import carcasaAvif from '../assets/optimized/tuboc-carcasa.avif';
+import carcasaWebp from '../assets/optimized/tuboc-carcasa.webp';
+import carcasaJpg from '../assets/optimized/tuboc-carcasa.jpg';
 
 export default function CTASection() {
   return (
@@ -31,7 +32,11 @@ export default function CTASection() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="cta-image-container">
-              <img src={carcasaImg} alt="TUBOC con carcasa" />
+              <picture>
+                <source srcSet={carcasaAvif} type="image/avif" />
+                <source srcSet={carcasaWebp} type="image/webp" />
+                <img src={carcasaJpg} alt="TUBOC con carcasa" loading="lazy" decoding="async" />
+              </picture>
             </div>
           </motion.div>
         </div>

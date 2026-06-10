@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Droplets, Hand, EyeOff, ShieldCheck, ChevronDown } from 'lucide-react';
 import beneficiosImg from '../assets/beneficios.jpg';
@@ -44,16 +44,22 @@ export default function BenefitsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              onClick={() => setOpenIndex(openIndex === index ? null : index)}
             >
-              <div className="benefit-card-header">
+              <button
+                type="button"
+                className="benefit-card-header"
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                aria-expanded={openIndex === index}
+                aria-controls={`benefit-content-${index}`}
+              >
                 <div className="benefit-icon">{benefit.icon}</div>
-                <h3>{benefit.title}</h3>
+                <span className="benefit-card-title">{benefit.title}</span>
                 <ChevronDown className={`benefit-chevron ${openIndex === index ? 'rotated' : ''}`} size={24} />
-              </div>
+              </button>
               <AnimatePresence>
                 {openIndex === index && (
                   <motion.div 
+                    id={`benefit-content-${index}`}
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}

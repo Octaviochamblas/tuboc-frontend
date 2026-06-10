@@ -1,4 +1,3 @@
-import React from 'react';
 import './MobileBuyBar.css';
 
 export default function MobileBuyBar() {

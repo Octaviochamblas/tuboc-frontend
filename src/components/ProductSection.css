@@ -118,7 +118,6 @@
   flex-direction: column;
   padding-bottom: 24px;
   border-bottom: 1px solid var(--product-border-bottom);
-  cursor: pointer;
   transition: opacity 0.3s ease;
 }
 
@@ -135,6 +134,14 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  text-align: left;
 }
 
 .feature-number {
@@ -161,6 +168,12 @@
   flex-grow: 1;
   font-size: 1.1rem;
   margin: 0;
+}
+
+.feature-header:focus-visible {
+  outline: 2px solid var(--c-blue-light);
+  outline-offset: 4px;
+  border-radius: 12px;
 }
 
 .feature-chevron {
