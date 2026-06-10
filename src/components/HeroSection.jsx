@@ -20,7 +20,7 @@ const reveal = (delay) => ({
 });
 
 export default function HeroSection() {
-  const [openClaim, setOpenClaim] = useState(0);
+  const [openClaim, setOpenClaim] = useState(null);
 
   return (
     <section className="hero-section" id="producto">
