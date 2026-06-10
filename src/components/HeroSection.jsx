@@ -1,14 +1,15 @@
-import { motion } from 'framer-motion';
-import { ShoppingBag, Hand, EyeOff, ShieldCheck } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ShoppingBag, Hand, EyeOff, ShieldCheck, ChevronDown } from 'lucide-react';
 import heroAvif from '../assets/optimized/tuboc-carcasa.avif';
 import heroWebp from '../assets/optimized/tuboc-carcasa.webp';
 import heroJpg from '../assets/optimized/tuboc-carcasa.jpg';
 import './HeroSection.css';
 
 const claims = [
-  { icon: <Hand size={22} />, title: 'Portátil', desc: 'Del tamaño de tu mano: llévala contigo donde quieras.' },
-  { icon: <EyeOff size={22} />, title: 'Discreta', desc: 'Su diseño minimalista pasa completamente desapercibido.' },
-  { icon: <ShieldCheck size={22} />, title: 'Protegida', desc: 'Su carcasa absorbe golpes y contiene los olores.' },
+  { icon: <Hand size={26} />, title: 'Portátil', desc: 'Del tamaño de tu mano: llévala contigo donde quieras.' },
+  { icon: <EyeOff size={26} />, title: 'Discreta', desc: 'Su diseño minimalista pasa completamente desapercibido.' },
+  { icon: <ShieldCheck size={26} />, title: 'Protegida', desc: 'Su carcasa absorbe golpes y contiene los olores.' },
 ];
 
 const easePremium = [0.16, 1, 0.3, 1];
@@ -19,6 +20,8 @@ const reveal = (delay) => ({
 });
 
 export default function HeroSection() {
+  const [openClaim, setOpenClaim] = useState(0);
+
   return (
     <section className="hero-section" id="producto">
       <div className="container">
@@ -33,12 +36,38 @@ export default function HeroSection() {
 
           <motion.div className="hero-claims-block" {...reveal(0.15)}>
             <ul className="hero-claims">
-              {claims.map((claim) => (
-                <li key={claim.title}>
-                  <span className="hero-claim-icon">{claim.icon}</span>
-                  <p><strong>{claim.title}.</strong> {claim.desc}</p>
-                </li>
-              ))}
+              {claims.map((claim, index) => {
+                const isOpen = openClaim === index;
+                return (
+                  <li key={claim.title} className={`hero-claim-card ${isOpen ? 'open' : ''}`}>
+                    <button
+                      type="button"
+                      className="hero-claim-trigger"
+                      onClick={() => setOpenClaim(isOpen ? null : index)}
+                      aria-expanded={isOpen}
+                      aria-controls={`hero-claim-${index}`}
+                    >
+                      <span className="hero-claim-icon">{claim.icon}</span>
+                      <span className="hero-claim-title">{claim.title}</span>
+                      <ChevronDown className="hero-claim-chevron" size={20} />
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          id={`hero-claim-${index}`}
+                          className="hero-claim-body"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.4, ease: easePremium }}
+                        >
+                          <p>{claim.desc}</p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </li>
+                );
+              })}
             </ul>
             <p className="hero-positioning">
               Para quienes buscan una experiencia más compacta, sobria y moderna.
