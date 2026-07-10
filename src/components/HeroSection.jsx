@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Hand, EyeOff, ShieldCheck, ChevronDown } from 'lucide-react';
-import heroAvif from '../assets/optimized/tuboc-carcasa.avif';
-import heroWebp from '../assets/optimized/tuboc-carcasa.webp';
-import heroJpg from '../assets/optimized/tuboc-carcasa.jpg';
+import heroAvif from '../assets/optimized/poc-hero-1.avif';
+import heroWebp from '../assets/optimized/poc-hero-1.webp';
+import heroJpg from '../assets/optimized/poc-hero-1.jpg';
 import './HeroSection.css';
 
 const claims = [

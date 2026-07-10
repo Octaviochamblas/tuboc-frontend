@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import './SpecsSection.css';
-import specsImg from '../assets/tuboc4.jpg';
+import specsImg from '../assets/optimized/poc-product-3.webp';
 
 const specs = [
   { label: 'Largo aproximado', value: '95 mm' },

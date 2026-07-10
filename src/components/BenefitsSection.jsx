@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Droplets, Hand, EyeOff, ShieldCheck } from 'lucide-react';
-import beneficiosImg from '../assets/beneficios.jpg';
+import beneficiosImg from '../assets/optimized/poc-benefits-4.webp';
 import DynamicCTA from './DynamicCTA';
 import './BenefitsSection.css';
 

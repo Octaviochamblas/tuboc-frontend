@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { EyeOff, Shield, Lock, ChevronDown } from 'lucide-react';
-import carcasaImg from '../assets/carcasa_v2.jpg';
+import carcasaImg from '../assets/optimized/poc-case-2.webp';
 import DynamicCTA from './DynamicCTA';
 import './CaseSection.css';
 

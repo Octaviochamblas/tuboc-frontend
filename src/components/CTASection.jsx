@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
 import './CTASection.css';
-import pipasImg from '../assets/tuboc4.jpg';
+import pipasImg from '../assets/optimized/poc-hero-1.webp';
 
 export default function CTASection() {
   const prefersReducedMotion = useReducedMotion();

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import productoImg from '../assets/producto.jpg';
+import productoImg from '../assets/optimized/poc-product-3.webp';
 import DynamicCTA from './DynamicCTA';
 import './ProductSection.css';
 
