@@ -4,8 +4,10 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 140px 0 80px 0;
-  background: radial-gradient(circle at 80% 20%, var(--hero-gradient), transparent 50%), var(--bg);
+  /* Ya no es la primera sección: la compensación del header fijo pasó a
+     .video-section, y el fondo a .intro-backdrop (compartido con el video). */
+  padding: 24px 0 80px;
+  background: transparent;
 }
 
 /* ─── Grid: desktop (texto izq, foto der spanning) ─── */

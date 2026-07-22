@@ -23,8 +23,13 @@ function App() {
     <>
       <Header theme={theme} toggleTheme={toggleTheme} />
       <main>
-        <HeroSection />
-        <VideoIntroSection />
+        {/* Video y hero comparten un solo fondo continuo: si cada sección
+            pintara su propio gradiente, se verían dos manchas y un corte
+            de color al scrollear. */}
+        <div className="intro-backdrop">
+          <VideoIntroSection />
+          <HeroSection />
+        </div>
         <CaseSection />
         <ProductSection />
         <BenefitsSection />

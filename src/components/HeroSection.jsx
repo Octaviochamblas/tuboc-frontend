@@ -13,9 +13,14 @@ const claims = [
 ];
 
 const easePremium = [0.16, 1, 0.3, 1];
+/* whileInView con once:false para que el hero aparezca y desaparezca al
+   scrollear, igual que el resto de las secciones. Antes era initial/animate
+   (entrada única al montar), que tenía sentido cuando el hero era lo
+   primero de la página; ahora va debajo del video. */
 const reveal = (delay) => ({
   initial: { opacity: 0, y: 28 },
-  animate: { opacity: 1, y: 0 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: false, margin: '-80px' },
   transition: { duration: 0.8, ease: easePremium, delay },
 });
 
@@ -77,7 +82,8 @@ export default function HeroSection() {
           <motion.div
             className="hero-visual"
             initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: false, margin: '-80px' }}
             transition={{ duration: 1, ease: easePremium, delay: 0.2 }}
           >
             <div className="hero-photo">

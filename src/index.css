@@ -241,6 +241,14 @@ a {
   padding: 0 24px;
 }
 
+/* Fondo continuo del bloque de entrada (video + hero).
+   El gradiente vive aquí y no en cada sección: pintado por sección, cada
+   una dibujaría su propio círculo y se vería el corte de color al bajar.
+   .video-section y .hero-section quedan transparentes. */
+.intro-backdrop {
+  background: radial-gradient(circle at 80% 20%, var(--hero-gradient), transparent 50%), var(--bg);
+}
+
 /* ─── Contextual link ─── */
 .contextual-link {
   display: inline-block;

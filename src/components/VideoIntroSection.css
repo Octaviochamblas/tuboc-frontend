@@ -1,6 +1,15 @@
+/* Primera sección de la página: compensa el header fijo, que mide 130px
+   arriba del todo (con top-bar) y ~80px una vez scrolleado. Antes de esto
+   la compensación la hacía el hero con su padding-top: 140px. */
 .video-section {
-  padding: 80px 0;
-  background: var(--bg-color);
+  padding: 180px 0 40px; /* header 130px + 50px de aire */
+  background: transparent; /* el fondo lo pinta .intro-backdrop */
+}
+
+@media (max-width: 768px) {
+  .video-section {
+    padding: 150px 0 32px; /* header ~111px + ~39px de aire */
+  }
 }
 
 .video-wrapper {
