@@ -11,7 +11,9 @@ const navLinks = [
   { href: '#faq', label: 'Preguntas' },
 ];
 
-export default function Header({ theme, toggleTheme }) {
+/* linkBase: '' en el landing (anchors locales, los maneja Lenis).
+   '/' en páginas como el manual, donde las secciones viven en la home. */
+export default function Header({ theme, toggleTheme, linkBase = '' }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -29,13 +31,13 @@ export default function Header({ theme, toggleTheme }) {
         <span>Primera edición limitada en vidrio azul profundo</span>
       </div>
       <div className="container header-container">
-        <a href="#" className="logo" onClick={() => setMobileMenuOpen(false)}>
+        <a href={linkBase || '#'} className="logo" onClick={() => setMobileMenuOpen(false)}>
           <img src={logoImg} alt="TUBOC Logo" />
         </a>
 
         <nav className={`main-nav ${mobileMenuOpen ? 'open' : ''}`}>
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setMobileMenuOpen(false)}>
+            <a key={link.href} href={`${linkBase}${link.href}`} onClick={() => setMobileMenuOpen(false)}>
               {link.label}
             </a>
           ))}

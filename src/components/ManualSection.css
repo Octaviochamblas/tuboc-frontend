@@ -1,0 +1,426 @@
+/* Manual de uso — reutiliza .container y .glass-card de index.css.
+   Aquí solo va lo propio del manual: ritmo, pasos, diagrama y ficha. */
+
+.manual {
+  padding: calc(var(--anchor-offset) + 40px) 0 120px;
+  position: relative;
+  overflow-x: clip; /* el glow de fondo no debe generar scroll horizontal */
+}
+
+.manual::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -220px;
+  width: 680px;
+  height: 680px;
+  background: radial-gradient(circle, var(--hero-gradient) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ─── Encabezado ─── */
+.manual-lede {
+  max-width: 760px;
+  margin-bottom: clamp(48px, 6vw, 76px);
+}
+
+.manual-eyebrow {
+  display: block;
+  margin-bottom: 18px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* En tema claro el accent sobre el fondo de página queda en 3.0:1 (bajo AA).
+   Mismo criterio que .specs-kicker: estos labels pasan a --text.
+   Dentro de las glass-card oscuras el accent sí pasa, así que no se toca. */
+[data-theme='light'] .manual-eyebrow,
+[data-theme='light'] .manual-dont h3 {
+  color: var(--text);
+}
+
+.manual-lede h1 {
+  font-size: clamp(2rem, 5.2vw, 3.2rem);
+  letter-spacing: -0.01em;
+}
+
+.manual-lede h1 span {
+  color: var(--title-accent);
+}
+
+.manual-lede p {
+  margin-top: 18px;
+  max-width: 640px;
+  color: var(--text-muted);
+  font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+  line-height: 1.7;
+}
+
+.manual-print {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 28px;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--interactive);
+  color: var(--palette-white);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.35s var(--ease-premium), box-shadow 0.35s var(--ease-premium);
+}
+
+.manual-print:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(38, 54, 137, 0.42);
+}
+
+/* ─── Rejilla de bloques ─── */
+/* Máximo 2 columnas: con 3 el orden de lectura de los pasos numerados se rompe. */
+.manual-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(32px, 4vw, 44px);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .manual-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.manual-block {
+  margin-bottom: 0;
+}
+
+.manual-grid + .manual-block {
+  margin-top: clamp(32px, 4vw, 44px);
+}
+
+.manual-kicker {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 20px;
+}
+
+.manual-n {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--palette-ink);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 0.85rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.manual-kicker h2 {
+  font-size: clamp(1.1rem, 2.6vw, 1.3rem);
+}
+
+/* ─── Tarjetas (glass-card + glow al cursor, igual que Beneficios) ─── */
+.manual-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(22px, 3vw, 30px);
+  color: var(--text-muted);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.manual-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    240px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(105, 151, 207, 0.16),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.manual-card:hover::before {
+  opacity: 1;
+}
+
+.manual-card > * {
+  position: relative;
+}
+
+.manual-card b,
+.manual-card strong {
+  color: var(--text);
+  font-weight: 800;
+}
+
+.manual-rule + .manual-card,
+.manual-card + .manual-card {
+  margin-top: 14px;
+}
+
+/* ─── Listas ─── */
+.manual-ticks {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.manual-ticks li {
+  display: flex;
+  gap: 12px;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.manual-tick-icon {
+  flex: none;
+  margin-top: 4px;
+  color: var(--accent);
+  stroke-width: 3;
+}
+
+/* ─── Pasos ─── */
+.manual-steps {
+  list-style: none;
+  display: grid;
+  gap: 17px;
+  margin: 0;
+  padding: 0;
+}
+
+.manual-steps li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.manual-step-n {
+  flex: none;
+  width: 25px;
+  height: 25px;
+  margin-top: 2px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.manual-steps b {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+}
+
+.manual-steps p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* ─── Nivel de agua ─── */
+.manual-water {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.manual-tube {
+  width: 104px;
+  flex: none;
+  margin: 0 auto;
+  color: var(--accent);
+}
+
+.manual-water-copy {
+  flex: 1;
+  min-width: 220px;
+}
+
+.manual-water-copy p {
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.manual-water-copy p + p {
+  margin-top: 11px;
+}
+
+/* ─── Regla de oro ─── */
+.manual-rule {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 22px 26px;
+  border-radius: 24px;
+  background: var(--interactive);
+  color: var(--palette-white);
+}
+
+.manual-rule svg {
+  flex: none;
+}
+
+.manual-rule p {
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.manual-rule b {
+  font-family: var(--font-heading);
+  font-weight: 800;
+}
+
+/* ─── No hagas esto ─── */
+.manual-dont h3 {
+  margin-bottom: 16px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ─── Ficha técnica ─── */
+.manual-specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+}
+
+.manual-spec {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 22px;
+}
+
+.manual-spec::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    240px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(105, 151, 207, 0.16),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.manual-spec:hover::before {
+  opacity: 1;
+}
+
+.manual-spec span,
+.manual-spec strong {
+  position: relative;
+}
+
+/* Mismos valores que .spec-label del sitio: el accent sobre la glass-card
+   clara queda en 3.0:1, por eso los labels de ficha van en --text-muted. */
+.manual-spec span {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.manual-spec strong {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+/* ─── Dato pendiente de completar ─── */
+/* El borde punteado queda en accent (es decorativo); el texto va en --text
+   para pasar AA sobre la glass-card clara. */
+.manual-fill {
+  display: inline-block;
+  padding: 1px 9px;
+  border: 1px dashed var(--accent);
+  border-radius: 8px;
+  color: var(--text);
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+/* ─── Legal ─── */
+.manual-legal {
+  margin-top: clamp(48px, 6vw, 76px);
+  padding-top: 30px;
+  border-top: 1px solid var(--glass-card-border);
+  max-width: 760px;
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+.manual-legal p + p {
+  margin-top: 12px;
+}
+
+.manual-legal b {
+  color: var(--text);
+  font-weight: 800;
+}
+
+.manual-legal a {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ─── Impresión ─── */
+@media print {
+  .manual {
+    padding: 0;
+  }
+
+  .manual::before,
+  .manual-print {
+    display: none;
+  }
+
+  .manual-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .manual-block,
+  .manual-card,
+  .manual-rule,
+  .manual-spec {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

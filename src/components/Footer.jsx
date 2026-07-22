@@ -1,7 +1,8 @@
 import logoImg from '../assets/logo_v3.png';
 import './Footer.css';
 
-export default function Footer() {
+/* linkBase: ver Header. '' en el landing, '/' en el manual. */
+export default function Footer({ linkBase = '' }) {
   return (
     <footer className="footer">
       <div className="container">
@@ -11,11 +12,12 @@ export default function Footer() {
             <p>Innovación en pipas de agua portátiles.</p>
           </div>
           <div className="footer-links">
-            <a href="#producto">Producto</a>
-            <a href="#carcasa">Carcasa</a>
-            <a href="#portabilidad">Portabilidad</a>
-            <a href="#beneficios">Beneficios</a>
-            <a href="#faq">Preguntas</a>
+            <a href={`${linkBase}#producto`}>Producto</a>
+            <a href={`${linkBase}#carcasa`}>Carcasa</a>
+            <a href={`${linkBase}#portabilidad`}>Portabilidad</a>
+            <a href={`${linkBase}#beneficios`}>Beneficios</a>
+            <a href={`${linkBase}#faq`}>Preguntas</a>
+            <a href="/manual.html">Manual de uso</a>
             <a href="https://wa.me/56976141490" target="_blank" rel="noreferrer">Contacto</a>
           </div>
         </div>

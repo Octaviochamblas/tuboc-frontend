@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import VideoIntroSection from './components/VideoIntroSection';
@@ -12,37 +11,13 @@ import TrustSection from './components/TrustSection';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import MobileBuyBar from './components/MobileBuyBar';
+import CanvasCursor from './components/CanvasCursor';
 import useLenis from './hooks/useLenis';
+import useTheme from './hooks/useTheme';
 
 function App() {
   useLenis();
-
-  const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem('tuboc-theme');
-    if (savedTheme) return savedTheme;
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-    return 'light';
-  });
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('tuboc-theme', theme);
-  }, [theme]);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = (e) => {
-      setTheme(e.matches ? 'dark' : 'light');
-    };
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <>
@@ -61,6 +36,7 @@ function App() {
       <Footer />
       <WhatsAppButton />
       <MobileBuyBar />
+      <CanvasCursor />
     </>
   );
 }
