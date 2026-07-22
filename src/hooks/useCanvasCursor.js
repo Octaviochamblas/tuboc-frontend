@@ -24,8 +24,10 @@ const CONFIG = {
   tension: 0.98,
 };
 
-// --accent (#6997CF) con la opacidad del original.
-const STROKE = 'rgba(105, 151, 207, 0.2)';
+// --accent (#6997CF) con la opacidad del original, que además se modula
+// por el fundido de entrada/salida.
+const STROKE_RGB = '105, 151, 207';
+const STROKE_ALPHA = 0.2;
 
 class Node {
   constructor(x, y) {
@@ -104,20 +106,29 @@ export default function useCanvasCursor(canvasRef) {
     const ctx = canvas.getContext('2d');
 
     /* Los nodos viven en coordenadas de DOCUMENTO, y al dibujar se traslada
-       por -scrollY. Así la estela ya trazada queda anclada al contenido y
-       baja con él al scrollear, en vez de quedar pegada a la pantalla.
+       por -scrollY. Así la estela queda anclada al contenido y se va con él
+       al scrollear, en vez de seguir al cursor por la pantalla.
        (El canvas sigue siendo fixed y del tamaño del viewport: uno del alto
        del documento serían decenas de MB de bitmap.)
 
-       El cursor se guarda en coordenadas de VIEWPORT y su equivalente en
-       página se recalcula cada frame. Si se derivara solo en 'mousemove',
-       al scrollear con el mouse quieto la estela se quedaría clavada a su
-       punto de página y luego cruzaría la pantalla de un latigazo. */
+       La posición de página se deriva SOLO en 'mousemove'. Eso por sí solo
+       provocaba un latigazo: tras scrollear lejos, el primer movimiento del
+       mouse hacía cruzar la estela por toda la pantalla. Se resuelve con el
+       desvanecimiento por inactividad de más abajo: al apagarse queda
+       aparcada, y al volver reaparece ya colocada en el cursor. */
     const cursor = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
     const pos = { x: cursor.x, y: cursor.y + window.scrollY };
     let lines = [];
     let running = true;
     let frame = 0;
+
+    // Visibilidad: aparece al mover el cursor, se apaga sola si no se mueve.
+    const IDLE_MS = 600;
+    const FADE = 0.09;
+    let alpha = 0;
+    let targetAlpha = 0;
+    let lastMove = 0;
+    let parked = true;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -131,37 +142,70 @@ export default function useCanvasCursor(canvasRef) {
       }
     };
 
+    // Coloca toda la cadena en el cursor, sin velocidad: evita el barrido
+    // desde la posición vieja cuando la estela reaparece tras apagarse.
+    const snapToCursor = () => {
+      for (const line of lines) {
+        for (const node of line.nodes) {
+          node.x = pos.x;
+          node.y = pos.y;
+          node.vx = 0;
+          node.vy = 0;
+        }
+      }
+    };
+
     const move = (e) => {
+      // Scrollear puede emitir mousemove sin que el cursor se haya movido;
+      // esos eventos no deben encender la estela.
+      if (e.clientX === cursor.x && e.clientY === cursor.y) return;
+
       cursor.x = e.clientX;
       cursor.y = e.clientY;
+      pos.x = cursor.x;
+      pos.y = cursor.y + window.scrollY;
+
+      if (parked) {
+        snapToCursor();
+        parked = false;
+      }
+
+      lastMove = performance.now();
+      targetAlpha = 1;
     };
 
     const render = () => {
       if (!running) return;
+      frame = window.requestAnimationFrame(render);
+
+      if (targetAlpha === 1 && performance.now() - lastMove > IDLE_MS) targetAlpha = 0;
+      alpha += (targetAlpha - alpha) * FADE;
+      if (alpha < 0.01) {
+        alpha = 0;
+        parked = true;
+      }
+
       ctx.globalCompositeOperation = 'source-over';
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (alpha === 0) return; // apagada: nada que actualizar ni dibujar
+
       // 'lighter' suma luz: sobre el fondo blanco del tema claro daría invisible.
       ctx.globalCompositeOperation =
         document.documentElement.getAttribute('data-theme') === 'light'
           ? 'source-over'
           : 'lighter';
-      ctx.strokeStyle = STROKE;
+      ctx.strokeStyle = `rgba(${STROKE_RGB}, ${(STROKE_ALPHA * alpha).toFixed(3)})`;
       ctx.lineWidth = 1;
 
-      // La cabeza persigue el cursor; el resto queda anclado al documento.
-      const scrollY = window.scrollY;
-      pos.x = cursor.x;
-      pos.y = cursor.y + scrollY;
-
-      // Documento → viewport. Los nodos guardan coordenadas de página.
+      // Documento → viewport. Los nodos guardan coordenadas de página, así
+      // que la estela se desplaza con el contenido al scrollear.
       ctx.save();
-      ctx.translate(0, -scrollY);
+      ctx.translate(0, -window.scrollY);
       for (const line of lines) {
         line.update(pos);
         line.draw(ctx);
       }
       ctx.restore();
-      frame = window.requestAnimationFrame(render);
     };
 
     const pause = () => {
