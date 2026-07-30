@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Check, X, ShieldCheck, Printer } from 'lucide-react';
+import { Check, X, ShieldCheck } from 'lucide-react';
 import './ManualSection.css';
 
 const easePremium = [0.16, 1, 0.3, 1];
@@ -18,9 +18,10 @@ const handleGlow = (e) => {
 };
 
 const boxContents = [
-  <><b>Pieza de vidrio POC</b> — borosilicato azul oscuro, formato tubular.</>,
+  <><b>Pieza de vidrio POC</b> — pipa hecha en vidrio borosilicato azul oscuro, formato tubular portatil.</>,
   <><b>Carcasa protectora</b> — a medida, opaca, para guardado y transporte.</>,
-  <span className="manual-fill">COMPLETAR: accesorios incluidos</span>,
+  <><b>Rejilla de borosilicato</b> — filtro para que las cenizas no entren en el quemador.</>,
+  <><b>Estuche de viaje</b> — guarda tus accesorios esenciales, como encendedor, moledor o cenicero portátil.</>,
 ];
 
 const firstSteps = [
@@ -102,17 +103,14 @@ export default function ManualSection() {
         >
           <span className="manual-eyebrow">Manual de uso · POC · Primera edición</span>
           <h1>
-            Una pipa de agua portátil.<br />
-            <span>Léelo una vez, dura años.</span>
+            Instrucciones de uso pipa POC<br />
+            <span>Léelo una vez y disfrútalo siempre</span>
           </h1>
           <p>
             POC filtra con agua en un formato de pipa directa. No se usa igual que un bong
             convencional: el nivel de agua y el ángulo son lo único que necesitas dominar.
             Todo lo demás es cuidado.
           </p>
-          <button type="button" className="manual-print" onClick={() => window.print()}>
-            <Printer size={17} aria-hidden="true" /> Imprimir o guardar en PDF
-          </button>
         </motion.header>
 
         <div className="manual-grid">
