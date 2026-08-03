@@ -5,7 +5,7 @@ import './FAQSection.css';
 
 const faqs = [
   { question: '¿Qué es TUBOC?', answer: 'Somos una empresa dedicada a la creación de pipas de agua orientadas a la portabilidad y discreción.' },
-  { question: '¿Qué color está disponible?', answer: 'La primera edición está disponible en vidrio azul oscuro.' },
+  { question: '¿Qué es POC?', answer: 'Es el nuevo modelo de pipas de agua portátiles.' },
   { question: '¿Incluye envase?', answer: 'Sí. Cada pieza incluye una carcasa protectora personalizada, diseñada para facilitar el guardado, el transporte y la conservación del producto.' },
   { question: '¿Cómo se compra?', answer: 'Puedes comprar directamente por WhatsApp. Te enviaremos la información de pago, disponibilidad y despacho según tu ciudad.' },
   { question: '¿Hacen envíos a regiones?', answer: 'Sí. Realizamos envíos a todo Chile, coordinando el despacho según la ciudad de destino y la disponibilidad vigente al momento de la compra. El costo de despacho será informado al momento de coordinar la compra.' },

@@ -69,6 +69,8 @@ function optimizeVideo(srcName, base, { width = 1280 } = {}) {
 
 console.log('— Imágenes —');
 await optimizeImage('TUBOC + Carcasa.JPG', 'tuboc-carcasa', 1400);
+await optimizeImage('Pipa POC TUBOC vertical Nivel de agua.png', 'poc-nivel-agua', 700);
+await optimizeImage('Pipa POC TUBOC inclinada.png', 'poc-inclinada', 700);
 
 console.log('— Video —');
 optimizeVideo('Tuboc Horizontal 2.mp4', 'tuboc-intro', { width: 1280 });

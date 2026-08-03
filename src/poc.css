@@ -1,0 +1,13 @@
+/* Compensa el header fijo (~130px con top-bar) para la primera sección de
+   la página, igual que hace .video-section en el landing. Las secciones
+   compartidas (Benefits/Case/Product/Specs) traen su propio padding-top de
+   80px, pensado para cuando NO son las primeras de la página. */
+.poc-page-main > section:first-child {
+  padding-top: 180px;
+}
+
+@media (max-width: 768px) {
+  .poc-page-main > section:first-child {
+    padding-top: 150px;
+  }
+}

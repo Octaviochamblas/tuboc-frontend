@@ -12,6 +12,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         manual: resolve(__dirname, 'manual.html'),
+        poc: resolve(__dirname, 'poc.html'),
       },
     },
   },

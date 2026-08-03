@@ -1,5 +1,14 @@
 import { motion } from 'framer-motion';
 import { Check, X, ShieldCheck } from 'lucide-react';
+import heroAvif from '../assets/optimized/poc-hero-1.avif';
+import heroWebp from '../assets/optimized/poc-hero-1.webp';
+import heroJpg from '../assets/optimized/poc-hero-1.jpg';
+import nivelAguaAvif from '../assets/optimized/poc-nivel-agua.avif';
+import nivelAguaWebp from '../assets/optimized/poc-nivel-agua.webp';
+import nivelAguaJpg from '../assets/optimized/poc-nivel-agua.jpg';
+import inclinadaAvif from '../assets/optimized/poc-inclinada.avif';
+import inclinadaWebp from '../assets/optimized/poc-inclinada.webp';
+import inclinadaJpg from '../assets/optimized/poc-inclinada.jpg';
 import './ManualSection.css';
 
 const easePremium = [0.16, 1, 0.3, 1];
@@ -25,10 +34,9 @@ const boxContents = [
 ];
 
 const firstSteps = [
-  { title: 'Enjuaga antes del primer uso', desc: <>Agua a temperatura ambiente. Retira cualquier residuo de fabricación.</> },
-  { title: 'Carga el agua', desc: <><span className="manual-fill">COMPLETAR: por dónde se llena</span> — hasta el nivel indicado en el punto 3.</> },
-  { title: 'Carga la pieza', desc: <>Sin compactar. Una carga suelta tira mejor y se consume parejo.</> },
-  { title: 'Aspira con calma', desc: <>Calada constante y suave. Forzar el tiro arrastra agua hacia la boquilla.</> },
+  { title: 'Carga el agua', desc: <>Por el orificio de aspirado, agrega agua con mucho cuidado hasta una altura de 2cm máximo (Rellena hasta la mitad de la altura del vidrio semi-transparente).</> },
+  { title: 'Carga la pieza', desc: <>Agrega tus flores, sin compactar ni apretarlas. Una carga suelta genera mejor fluidez del aire caliente y mayor arrastre de componentes activos sin que estos se pierdan en el quemado.</> },
+  { title: 'Aspira con calma', desc: <>Caladas suaves y constantes generan un flujo de aire controlado que minimiza la entrada de ceniza dentro de la pipa e impide que el agua salte bruscamente hacia tu boca.</> },
 ];
 
 const cleaning = [
@@ -45,8 +53,7 @@ const transport = [
 ];
 
 const donts = [
-  'Agua hirviendo sobre vidrio frío. El borosilicato resiste mucho más que el vidrio común, pero el choque térmico brusco lo fisura igual.',
-  'Lavavajillas, cloro, esponjas abrasivas o cepillos metálicos.',
+  'Evita el uso de esponjas abrasivas o cepillos metálicos que rayen el material.',
   'Guardarla con agua o sucia: mancha, huele y no siempre se recupera.',
   'Dejarla en el auto al sol, en el congelador o en un bolsillo trasero.',
   'Tocar la zona de combustión recién usada: queda caliente.',
@@ -58,7 +65,7 @@ const specs = [
   { label: 'Peso aproximado', value: '75 g' },
   { label: 'Material', value: 'Vidrio de borosilicato' },
   { label: 'Color disponible', value: 'Azul oscuro' },
-  { label: 'Carcasa', value: 'Incluida' },
+  { label: 'Carcasa', value: <>Largo: 130mm<br />Diámetro: 40mm</> },
 ];
 
 function Block({ n, title, children, delay = 0 }) {
@@ -101,16 +108,26 @@ export default function ManualSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: easePremium }}
         >
-          <span className="manual-eyebrow">Manual de uso · POC · Primera edición</span>
-          <h1>
-            Instrucciones de uso pipa POC<br />
-            <span>Léelo una vez y disfrútalo siempre</span>
-          </h1>
-          <p>
-            POC filtra con agua en un formato de pipa directa. No se usa igual que un bong
-            convencional: el nivel de agua y el ángulo son lo único que necesitas dominar.
-            Todo lo demás es cuidado.
-          </p>
+          <div className="manual-lede-copy">
+            <span className="manual-eyebrow">Manual de uso · POC · Primera edición</span>
+            <h1>
+              Instrucciones de uso pipa POC<br />
+              <span>Léelo una vez y disfrútalo siempre</span>
+            </h1>
+            <p>
+              POC es el nuevo formato de pipas de agua portatil. No se usa igual que un bong
+              convencional: el nivel de agua y el ángulo son lo único que necesitas dominar.
+              Todo lo demás es cuidado.
+            </p>
+          </div>
+
+          <div className="manual-lede-media glass-card">
+            <picture>
+              <source srcSet={heroAvif} type="image/avif" />
+              <source srcSet={heroWebp} type="image/webp" />
+              <img src={heroJpg} alt="POC de TUBOC junto a su carcasa protectora" />
+            </picture>
+          </div>
         </motion.header>
 
         <div className="manual-grid">
@@ -121,7 +138,7 @@ export default function ManualSection() {
             </div>
           </Block>
 
-          <Block n="2" title="Primeros 60 segundos" delay={0.08}>
+          <Block n="2" title="Instrucciones" delay={0.08}>
             <div className="glass-card manual-card" onMouseMove={handleGlow}>
               <ol className="manual-steps">
                 {firstSteps.map((step, i) => (
@@ -140,39 +157,45 @@ export default function ManualSection() {
           <Block n="3" title="Nivel de agua">
             <div className="glass-card manual-card" onMouseMove={handleGlow}>
               <div className="manual-water">
-                <svg
-                  className="manual-tube"
-                  viewBox="-18 0 110 210"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  role="img"
-                  aria-label="Diagrama: el agua llena aproximadamente el tercio inferior del tubo, bajo la marca de nivel máximo"
-                >
-                  <rect x="17" y="6" width="40" height="198" rx="20" stroke="currentColor" strokeWidth="2" opacity=".5" />
-                  <path d="M19 126h36v58a20 20 0 0 1-20 20h0a20 20 0 0 1-16-20z" fill="currentColor" opacity=".26" />
-                  <line x1="19" y1="126" x2="55" y2="126" stroke="currentColor" strokeWidth="2.5" />
-                  <line x1="60" y1="126" x2="72" y2="126" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" />
-                  <line x1="19" y1="86" x2="55" y2="86" stroke="currentColor" strokeWidth="1.2" strokeDasharray="4 4" opacity=".45" />
-                  <text x="62" y="89" fill="currentColor" fontFamily="Montserrat" fontSize="9" fontWeight="600" opacity=".75">máx</text>
-                  <text x="12" y="130" fill="currentColor" fontFamily="Montserrat" fontSize="9" fontWeight="800" textAnchor="end">ok</text>
-                </svg>
+                <picture className="manual-water-photo">
+                  <source srcSet={nivelAguaAvif} type="image/avif" />
+                  <source srcSet={nivelAguaWebp} type="image/webp" />
+                  <img src={nivelAguaJpg} alt="Pipa POC en vertical mostrando el nivel de agua correcto" />
+                </picture>
                 <div className="manual-water-copy">
-                  <p>Llena hasta <span className="manual-fill">COMPLETAR: nivel / ml</span>. Es el único dato que define una buena primera calada.</p>
-                  <p><b>De más:</b> el agua sube por el tubo y llega a la boca.</p>
-                  <p><b>De menos:</b> no filtra, el humo entra caliente y seco.</p>
-                  <p><b>Ángulo:</b> mantenla dentro de <span className="manual-fill">COMPLETAR: inclinación máx.</span> al aspirar.</p>
+                  <p>Llena de agua hasta 2cm de altura. Sólo necesitas un poco de agua. Nunca llenes hasta arriba.</p>
+                  <p><b>Si tiene mucha agua:</b> al fumar, el agua sube por el tubo y llega a la boca.</p>
+                  <p><b>Si tiene menos:</b> el agua no filtra el humo. Entra caliente, seco y con micro-cenizas.</p>
+                  <p><b>Ángulo:</b> mantenla entre 30° y 60° de inclinación al aspirar.</p>
                 </div>
               </div>
             </div>
           </Block>
 
-          <Block n="4" title="Limpieza" delay={0.08}>
+          <Block n="4" title="Modo de uso" delay={0.08}>
+            <div className="glass-card manual-card" onMouseMove={handleGlow}>
+              <div className="manual-water manual-water--stacked">
+                <div className="manual-water-copy">
+                  <p><b>Para un uso óptimo</b>: se sugiere fumar usando la pipa con una leve inclinación: <b>entre 30° y 60°</b>.</p>
+                  <p><b>Si se usa completamente horizontal:</b> el nivel del agua disminuye y el humo no percola en el agua.</p>
+                  <p><b>Si se inclina hacia arriba:</b> el agua puede salir de la pipa y entrar en tu boca.</p>
+                </div>
+                <picture className="manual-water-photo">
+                  <source srcSet={inclinadaAvif} type="image/avif" />
+                  <source srcSet={inclinadaWebp} type="image/webp" />
+                  <img src={inclinadaJpg} alt="Pipa POC inclinada mostrando el ángulo correcto de uso" />
+                </picture>
+              </div>
+            </div>
+          </Block>
+
+          <Block n="5" title="Limpieza">
             <div className="glass-card manual-card" onMouseMove={handleGlow}>
               <TickList items={cleaning} />
             </div>
           </Block>
 
-          <Block n="5" title="Transporte y guardado">
+          <Block n="6" title="Transporte y guardado" delay={0.08}>
             <div className="manual-rule">
               <ShieldCheck size={26} aria-hidden="true" />
               <p><b>Regla de oro:</b> nunca la transportes con agua adentro. Vacía, seca, guarda.</p>
@@ -182,7 +205,7 @@ export default function ManualSection() {
             </div>
           </Block>
 
-          <Block n="6" title="No hagas esto" delay={0.08}>
+          <Block n="7" title="No hagas esto">
             <div className="glass-card manual-card manual-dont" onMouseMove={handleGlow}>
               <h3>Daña la pieza</h3>
               <ul className="manual-ticks">
@@ -197,7 +220,7 @@ export default function ManualSection() {
           </Block>
         </div>
 
-        <Block n="7" title="Ficha técnica">
+        <Block n="8" title="Ficha técnica">
           <div className="manual-specs">
             {specs.map((spec, i) => (
               <motion.div
@@ -219,11 +242,6 @@ export default function ManualSection() {
             <b>Venta exclusiva para mayores de 18 años.</b> Mantener fuera del alcance de menores.
             Uso responsable: no utilizar antes de conducir ni de operar maquinaria. Producto de
             vidrio: pese a su formato tubular reforzado, puede romperse ante impactos directos.
-          </p>
-          <p>
-            <b>Soporte y reposición:</b> si la pieza llegó dañada en el transporte, escríbenos por{' '}
-            <a href="https://wa.me/56976141490" target="_blank" rel="noreferrer">WhatsApp</a>{' '}
-            con fotografías del empaque y de la pieza recibida.
           </p>
         </motion.aside>
 

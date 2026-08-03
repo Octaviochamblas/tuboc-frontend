@@ -1,16 +1,20 @@
 # Rehacer el menú de navegación
 
 **Fase:** 4
-**Prioridad:** Alta
+**Prioridad:** Media (bajó desde Alta — el desborde ya no existe)
 **Depende de:** rama `feat/manual-page-and-canvas-cursor` mergeada (ver `Finalizado/registro-manual-y-canvas-cursor.md`)
 
-## Contexto
+## Actualización 2026-08-03
 
-El header hoy tiene cinco links, todos anclas a secciones del landing:
+El menú ya se simplificó a **Inicio · POC · Manual** (ver `Finalizado/registro-pagina-poc-y-manual.md`), a pedido directo del usuario — no siguió el camino de agrupar los 8 destinos que este documento planteaba. Esto resuelve el problema de desborde (objetivo de este documento), pero **"Quiénes somos" y "Contacto" siguen sin resolverse**: no hay página ni sección para ninguno de los dos. El resto de este documento (decisiones pendientes 2, 3 y 4) sigue vigente si se retoman esos puntos.
+
+## Contexto (histórico, antes del cambio de menú)
+
+El header tenía cinco links, todos anclas a secciones del landing:
 
 `Producto · Carcasa · Portabilidad · Beneficios · Preguntas`
 
-Con la nueva página de manual el menú se queda corto, y el registro de la fase 3 ya había anotado que **un sexto link desborda en desktop medio** (por eso Especificaciones nunca se agregó). Sumar tres más no cabe con la estructura actual: hay que rediseñar, no solo añadir.
+Con la nueva página de manual el menú se quedaba corto, y el registro de la fase 3 ya había anotado que **un sexto link desborda en desktop medio** (por eso Especificaciones nunca se agregó). Sumar tres más no cabía con la estructura de entonces.
 
 ## Objetivo
 

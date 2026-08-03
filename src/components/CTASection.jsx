@@ -36,7 +36,7 @@ export default function CTASection() {
             transition={{ duration: 0.6 }}
           >
             <h2>Cómpralo ahora</h2>
-            <p>Disponibilidad limitada de lanzamiento. Diseño portátil, discreto y compacto en vidrio azul oscuro. Incluye carcasa protectora y pertenece a la primera edición limitada de TUBOC.</p>
+            <p>Pipa POC: Disponibilidad limitada de lanzamiento. Diseño portátil, discreto y compacto en vidrio azul oscuro. Incluye carcasa protectora y pertenece a la primera edición limitada.</p>
             
             <a
               href="https://tuboc.shop"

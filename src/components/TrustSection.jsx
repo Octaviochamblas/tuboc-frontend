@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { CreditCard, RotateCcw, ShieldCheck, Truck } from 'lucide-react';
+import DynamicCTA from './DynamicCTA';
 import './TrustSection.css';
 
 const trustItems = [
@@ -52,6 +53,8 @@ export default function TrustSection() {
               </article>
             ))}
           </div>
+
+          <DynamicCTA text="Consigue tu POC ahora" />
         </motion.div>
       </div>
     </section>

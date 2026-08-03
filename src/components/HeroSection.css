@@ -85,30 +85,12 @@
   transform: translateY(-2px);
 }
 
-.hero-claim-card.open {
-  border-color: rgba(105, 151, 207, 0.55);
-  background: rgba(105, 151, 207, 0.08);
-  box-shadow: 0 12px 34px rgba(105, 151, 207, 0.18);
-}
-
 .hero-claim-trigger {
   display: flex;
   align-items: center;
   gap: 16px;
   width: 100%;
   padding: 16px 18px;
-  background: transparent;
-  border: 0;
-  color: inherit;
-  cursor: pointer;
-  font: inherit;
-  text-align: left;
-}
-
-.hero-claim-trigger:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: -3px;
-  border-radius: 16px;
 }
 
 .hero-claim-icon {
@@ -124,8 +106,7 @@
   transition: transform 0.3s var(--ease-premium), background 0.3s ease, color 0.3s ease;
 }
 
-.hero-claim-card:hover .hero-claim-icon,
-.hero-claim-card.open .hero-claim-icon {
+.hero-claim-card:hover .hero-claim-icon {
   background: var(--accent);
   color: var(--palette-ink);
   transform: scale(1.06);
@@ -138,21 +119,6 @@
   font-size: 1.18rem;
   letter-spacing: 0.3px;
   color: var(--text);
-}
-
-.hero-claim-chevron {
-  flex-shrink: 0;
-  color: var(--text-muted);
-  transition: transform 0.3s var(--ease-premium), color 0.3s ease;
-}
-
-.hero-claim-card.open .hero-claim-chevron {
-  transform: rotate(180deg);
-  color: var(--accent);
-}
-
-.hero-claim-body {
-  overflow: hidden;
 }
 
 .hero-claim-body p {

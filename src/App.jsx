@@ -1,12 +1,9 @@
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import VideoIntroSection from './components/VideoIntroSection';
-import BenefitsSection from './components/BenefitsSection';
-import CaseSection from './components/CaseSection';
-import ProductSection from './components/ProductSection';
+import PocTeaserSection from './components/PocTeaserSection';
 import FAQSection from './components/FAQSection';
 import CTASection from './components/CTASection';
-import SpecsSection from './components/SpecsSection';
 import TrustSection from './components/TrustSection';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -30,10 +27,7 @@ function App() {
           <VideoIntroSection />
           <HeroSection />
         </div>
-        <CaseSection />
-        <ProductSection />
-        <BenefitsSection />
-        <SpecsSection />
+        <PocTeaserSection />
         <TrustSection />
         <FAQSection />
         <CTASection />

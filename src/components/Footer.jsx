@@ -13,9 +13,9 @@ export default function Footer({ linkBase = '' }) {
           </div>
           <div className="footer-links">
             <a href={`${linkBase}#producto`}>Producto</a>
-            <a href={`${linkBase}#carcasa`}>Carcasa</a>
-            <a href={`${linkBase}#portabilidad`}>Portabilidad</a>
-            <a href={`${linkBase}#beneficios`}>Beneficios</a>
+            <a href="/poc.html#carcasa">Carcasa</a>
+            <a href="/poc.html#portabilidad">Portabilidad</a>
+            <a href="/poc.html#beneficios">Beneficios</a>
             <a href={`${linkBase}#faq`}>Preguntas</a>
             <a href="/manual.html">Manual de uso</a>
             <a href="https://wa.me/56976141490" target="_blank" rel="noreferrer">Contacto</a>

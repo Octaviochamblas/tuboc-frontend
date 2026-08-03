@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Hand, EyeOff, ShieldCheck, ChevronDown } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ShoppingBag, Hand, EyeOff, ShieldCheck } from 'lucide-react';
 import heroAvif from '../assets/optimized/poc-hero-1.avif';
 import heroWebp from '../assets/optimized/poc-hero-1.webp';
 import heroJpg from '../assets/optimized/poc-hero-1.jpg';
@@ -25,8 +24,6 @@ const reveal = (delay) => ({
 });
 
 export default function HeroSection() {
-  const [openClaim, setOpenClaim] = useState(null);
-
   return (
     <section className="hero-section" id="producto">
       <div className="container">
@@ -35,44 +32,23 @@ export default function HeroSection() {
           <motion.div className="hero-heading" {...reveal(0)}>
             <span className="hero-tagline">Innovación · Portabilidad · Discreción</span>
             <h1 className="hero-title">
-              <span>Conoce POC:</span> La pipa de agua portátil <span>que cabe en tu mano</span>
+              <span>POC:</span> La pipa de agua portátil <span>que cabe en tu mano</span>
             </h1>
           </motion.div>
 
           <motion.div className="hero-claims-block" {...reveal(0.15)}>
             <ul className="hero-claims">
-              {claims.map((claim, index) => {
-                const isOpen = openClaim === index;
-                return (
-                  <li key={claim.title} className={`hero-claim-card ${isOpen ? 'open' : ''}`}>
-                    <button
-                      type="button"
-                      className="hero-claim-trigger"
-                      onClick={() => setOpenClaim(isOpen ? null : index)}
-                      aria-expanded={isOpen}
-                      aria-controls={`hero-claim-${index}`}
-                    >
-                      <span className="hero-claim-icon">{claim.icon}</span>
-                      <span className="hero-claim-title">{claim.title}</span>
-                      <ChevronDown className="hero-claim-chevron" size={20} />
-                    </button>
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          id={`hero-claim-${index}`}
-                          className="hero-claim-body"
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.4, ease: easePremium }}
-                        >
-                          <p>{claim.desc}</p>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </li>
-                );
-              })}
+              {claims.map((claim) => (
+                <li key={claim.title} className="hero-claim-card">
+                  <div className="hero-claim-trigger">
+                    <span className="hero-claim-icon">{claim.icon}</span>
+                    <span className="hero-claim-title">{claim.title}</span>
+                  </div>
+                  <div className="hero-claim-body">
+                    <p>{claim.desc}</p>
+                  </div>
+                </li>
+              ))}
             </ul>
             <p className="hero-positioning">
               Para quienes buscan una experiencia más compacta, sobria y moderna.

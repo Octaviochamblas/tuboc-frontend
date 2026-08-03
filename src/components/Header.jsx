@@ -4,11 +4,8 @@ import logoImg from '../assets/logo_v3.png';
 import './Header.css';
 
 const navLinks = [
-  { href: '#producto', label: 'Producto' },
-  { href: '#carcasa', label: 'Carcasa' },
-  { href: '#portabilidad', label: 'Portabilidad' },
-  { href: '#beneficios', label: 'Beneficios' },
-  { href: '#faq', label: 'Preguntas' },
+  { href: '/poc.html', label: 'POC' },
+  { href: '/manual.html', label: 'Manual' },
 ];
 
 /* linkBase: '' en el landing (anchors locales, los maneja Lenis).
@@ -36,8 +33,11 @@ export default function Header({ theme, toggleTheme, linkBase = '' }) {
         </a>
 
         <nav className={`main-nav ${mobileMenuOpen ? 'open' : ''}`}>
+          <a href={linkBase || '#'} onClick={() => setMobileMenuOpen(false)}>
+            Inicio
+          </a>
           {navLinks.map((link) => (
-            <a key={link.href} href={`${linkBase}${link.href}`} onClick={() => setMobileMenuOpen(false)}>
+            <a key={link.href} href={link.href} onClick={() => setMobileMenuOpen(false)}>
               {link.label}
             </a>
           ))}

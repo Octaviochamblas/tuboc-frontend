@@ -1,0 +1,114 @@
+.poc-teaser-section {
+  padding: 90px 0 70px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.poc-teaser-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.poc-teaser-kicker {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+
+.poc-teaser-header p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.poc-teaser-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.poc-teaser-card {
+  position: relative;
+  overflow: hidden;
+  padding: 26px 24px;
+  border-radius: 18px;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s var(--ease-premium);
+}
+
+.poc-teaser-card:hover {
+  border-color: rgba(105, 151, 207, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.poc-teaser-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
+  background: var(--interactive);
+  color: var(--palette-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  transition: transform 0.3s var(--ease-premium), background 0.3s ease, color 0.3s ease;
+}
+
+.poc-teaser-card:hover .poc-teaser-icon {
+  background: var(--accent);
+  color: var(--palette-ink);
+  transform: scale(1.06);
+}
+
+.poc-teaser-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  margin: 0 0 10px 0;
+  color: var(--text);
+}
+
+.poc-teaser-desc {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.poc-teaser-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+@media (max-width: 968px) {
+  .poc-teaser-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .poc-teaser-section {
+    padding: 70px 0 56px;
+  }
+  .poc-teaser-grid {
+    grid-template-columns: 1fr;
+  }
+}

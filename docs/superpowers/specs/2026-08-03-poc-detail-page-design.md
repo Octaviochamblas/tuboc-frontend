@@ -45,11 +45,12 @@ Posición en `App.jsx`: donde estaban las 4 secciones removidas (entre el bloque
 
 ## Navegación (`Header.jsx` / `Footer.jsx`)
 
-Los links "Carcasa", "Portabilidad" y "Beneficios" dejan de ser anclas locales (`#carcasa`, etc.) y pasan a apuntar directo a `/poc.html#carcasa`, `/poc.html#portabilidad`, `/poc.html#beneficios` (absolutos, ignoran `linkBase`, funcionan igual desde cualquier página). "Producto" (`#producto`) y "Preguntas" (`#faq`) siguen como anclas locales del landing, sin cambio.
+**Actualizado 2026-08-03 — reemplaza el plan anterior de esta sección.** El usuario pidió simplificar el menú principal a 3 links: **Inicio**, **POC**, **Manual**.
 
-En `Header.jsx`, los 3 links pasan a tener un flag `absolute: true` en `navLinks` para que el render no les anteponga `linkBase`. En `Footer.jsx` (que no usa un array de datos, es JSX inline) se hardcodean igual que ya está hardcodeado el link "Manual de uso".
+- `Header.jsx`: `navLinks` pasa a `[{ href: '/poc.html', label: 'POC' }, { href: '/manual.html', label: 'Manual' }]`, ambos absolutos (sin prefijo `linkBase`). "Inicio" se renderiza aparte, reutilizando la misma expresión que ya usa el logo (`linkBase || '#'`): scroll-to-top en el landing, vuelve a `/` desde `poc.html`/`manual.html`. Se eliminan del nav "Producto", "Carcasa", "Portabilidad", "Beneficios" y "Preguntas" (siguen existiendo como secciones/anclas, solo salen del menú).
+- `Footer.jsx`: mantiene su lista de links tal cual (Producto/Carcasa/Portabilidad/Beneficios/Preguntas/Manual de uso/Contacto), pero "Carcasa", "Portabilidad" y "Beneficios" pasan a apuntar a `/poc.html#carcasa`, `/poc.html#portabilidad`, `/poc.html#beneficios` (absolutos) ya que esas secciones se mudan a la página nueva. El footer sigue funcionando como mapa de sitio completo aunque el header ahora sea minimal.
 
-No se agregan ítems al menú (sigue en 5 links) — no reabre el problema de desborde en desktop medio que ya tenía anotado `Por iniciar/09-rehacer-menu-navegacion.md`. Esa tarea sigue pendiente para cuando se sumen Manual/Quiénes somos/Contacto al menú; este cambio es puntual y no la reemplaza.
+Esto resuelve de facto el desborde de menú que preocupaba a `Por iniciar/09-rehacer-menu-navegacion.md` (3 links en vez de 5-8), aunque no agrega "Quiénes somos" ni una página de "Contacto" — esa tarea puede cerrarse o reducirse a esos dos puntos pendientes.
 
 ## Fuera de alcance
 

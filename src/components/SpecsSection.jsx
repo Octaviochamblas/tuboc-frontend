@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import DynamicCTA from './DynamicCTA';
 import './SpecsSection.css';
 import specsImg from '../assets/optimized/poc-product-3.webp';
 
@@ -60,6 +61,7 @@ export default function SpecsSection() {
             <img src={specsImg} alt="POC de TUBOC — pipa de agua portátil en vidrio azul" loading="lazy" decoding="async" />
           </motion.div>
         </div>
+        <DynamicCTA text="Consigue tu POC ahora" />
       </div>
     </section>
   );
