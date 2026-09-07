@@ -18,6 +18,7 @@ export default function Footer({ linkBase = '' }) {
             <a href="/poc.html#beneficios">Beneficios</a>
             <a href={`${linkBase}#faq`}>Preguntas</a>
             <a href="/manual.html">Manual de uso</a>
+            <a href="/inspector-piezas.html">Inspector 3D</a>
             <a href="https://wa.me/56976141490" target="_blank" rel="noreferrer">Contacto</a>
           </div>
         </div>
